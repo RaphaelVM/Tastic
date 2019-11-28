@@ -1,2 +1,0 @@
-# Tastic
-Proftaak project Tastic
