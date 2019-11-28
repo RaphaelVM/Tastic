@@ -61,3 +61,5 @@ C:\Users\niels\source\repos\Tastic\Tastic\Tastic\bin\Microsoft.CodeDom.Providers
 C:\Users\niels\source\repos\Tastic\Tastic\Tastic\obj\Debug\Tastic.csproj.CopyComplete
 C:\Users\niels\source\repos\Tastic\Tastic\Tastic\obj\Debug\Tastic.dll
 C:\Users\niels\source\repos\Tastic\Tastic\Tastic\obj\Debug\Tastic.pdb
+C:\Users\niels\source\repos\Tastic\Tastic\Tastic\bin\Tastic.dll.CodeAnalysisLog.xml
+C:\Users\niels\source\repos\Tastic\Tastic\Tastic\bin\Tastic.dll.lastcodeanalysissucceeded

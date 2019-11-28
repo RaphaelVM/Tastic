@@ -8,8 +8,11 @@ namespace Tastic.classes
 {
     public class database
     {
-        public static readonly string GeneralConnectionString = "Server=mysql.feddema.dev;" +
-            "Database=tastic;User Id=tastic;Password=Tg8VTSxqPgi616907pf21Dd5;";
+        public static readonly string GeneralConnectionString =
+            "Server=" + Properties.Settings.Default.sql_host + ";" +
+            "Database=" + Properties.Settings.Default.sql_db + ";" +
+            "User Id=" + Properties.Settings.Default.sql_user + ";" +
+            "Password=" + Properties.Settings.Default.sql_pass + ";";
 
         public static MySqlConnection GeneralConnection = new MySqlConnection();
 

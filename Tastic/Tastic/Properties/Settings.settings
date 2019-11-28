@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Tastic.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="sql_user" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">tastic</Value>
+    </Setting>
+    <Setting Name="sql_pass" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Tg8VTSxqPgi616907pf21Dd5</Value>
+    </Setting>
+    <Setting Name="sql_host" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">mysql.feddema.dev</Value>
+    </Setting>
+    <Setting Name="sql_db" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">tastic</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

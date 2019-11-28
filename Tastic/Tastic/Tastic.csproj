@@ -89,7 +89,16 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="classes\Categorie.cs" />
+    <Compile Include="classes\Catering.cs" />
+    <Compile Include="classes\Company.cs" />
     <Compile Include="classes\database.cs" />
+    <Compile Include="classes\Order.cs" />
+    <Compile Include="classes\OrderLines.cs" />
+    <Compile Include="classes\Product.cs" />
+    <Compile Include="classes\Role.cs" />
+    <Compile Include="classes\User.cs" />
+    <Compile Include="classes\Wallet.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -101,9 +110,18 @@
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
