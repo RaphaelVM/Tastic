@@ -14,5 +14,14 @@
     <Setting Name="sql_db" Type="System.String" Scope="Application">
       <Value Profile="(Default)">tastic</Value>
     </Setting>
+    <Setting Name="ftp_user" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">tastic</Value>
+    </Setting>
+    <Setting Name="ftp_pass" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">2cS6Sv7QWW7y3PMI243XOl45</Value>
+    </Setting>
+    <Setting Name="ftp_host" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ftp.feddema.dev</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -58,5 +58,32 @@ namespace Tastic.Properties {
                 return ((string)(this["sql_db"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("tastic")]
+        public string ftp_user {
+            get {
+                return ((string)(this["ftp_user"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2cS6Sv7QWW7y3PMI243XOl45")]
+        public string ftp_pass {
+            get {
+                return ((string)(this["ftp_pass"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("ftp.feddema.dev")]
+        public string ftp_host {
+            get {
+                return ((string)(this["ftp_host"]));
+            }
+        }
     }
 }
