@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29215.179
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tastic", "Tastic\Tastic.csproj", "{1F4813F0-8925-4ACA-8332-5BAD44AF360D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1F4813F0-8925-4ACA-8332-5BAD44AF360D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F4813F0-8925-4ACA-8332-5BAD44AF360D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F4813F0-8925-4ACA-8332-5BAD44AF360D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F4813F0-8925-4ACA-8332-5BAD44AF360D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0E9E963A-E155-49A1-B2CF-339EA3E7D489}
+	EndGlobalSection
+EndGlobal
