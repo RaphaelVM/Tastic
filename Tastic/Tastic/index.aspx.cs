@@ -12,13 +12,24 @@ namespace Tastic
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (database.OpenGeneralConnection())
+            if (!Page.IsPostBack)
             {
-                lblConn.Text = "Connection made";
-            } else
-            {
-                lblConn.Text = "Connection failed";
+                if (database.OpenGeneralConnection())
+                {
+                    lblConn.Text = "Connection made";
+                }
+                else
+                {
+                    lblConn.Text = "Connection failed";
+                }
             }
+        }
+
+        protected void testBtn_Click(object sender, EventArgs e)
+        {
+            lblConn.Text = "Test";
+
+            //Page.Response.Redirect(Page.Request.Url.AbsoluteUri);
         }
     }
 }
