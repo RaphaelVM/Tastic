@@ -1,0 +1,47 @@
+﻿.backgroundMain {
+    background-image: url(../images/backgroundLogin.jpg);
+    background-position: center center;
+    background-size: cover;
+    height: 100vh;
+}
+
+.row {
+    margin: 0px;
+}
+
+.formThingy {
+    display: flex;
+    align-content: center;
+}
+
+.formContainer {
+    margin: auto;
+    margin-top: calc(100% - 90%);
+    max-width: 25%;
+}
+
+.logoLogin img {
+    height: 95%;
+    width: 95%;
+}
+
+.formStyle {
+    background-color: #F9FFF4;
+    border-color: #8FDD3C;
+    color: #333333;
+}
+
+.buttonStyle {
+    color: #333333;
+    background-color: #8FDD3C;
+    border-color: #8FDD3C;
+    min-width: 40%;
+    transition: 0.3s all ease;
+}
+
+.buttonStyle:hover {
+    color: #333333;
+    background-color: #F9FFF4;
+    border-color: #8FDD3C;
+    transition: 0.3s all ease;
+}

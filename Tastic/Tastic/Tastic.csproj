@@ -85,8 +85,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="images\backgroundLogin.jpg" />
+    <Content Include="images\finalLogoTastic.png" />
     <Content Include="index.aspx" />
     <Content Include="js\jquery-3.4.1.min.js" />
+    <Content Include="styles\global.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
