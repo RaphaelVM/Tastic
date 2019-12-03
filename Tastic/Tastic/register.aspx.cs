@@ -30,7 +30,7 @@ namespace Tastic
             string lastname = txtAchternaam.Text;
             string email = txtEmail.Text;
 
-            string passHash = Common.Hash(txtWachtwoord.Text);
+            string passHash = Common.Hash(txtWachtwoord.Text, 10000);
 
             Match emailMatch = Regex.Match(txtEmail.Text, @".+[@].+[.].{2,6}", RegexOptions.IgnoreCase);
 

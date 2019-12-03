@@ -27,36 +27,21 @@ namespace Tastic
             string email = txtEmail.Text;
             string password = txtPassword.Text;
 
-            string hash = Common.Hash(password);
-
             User user = UserSQL.getUserFromEmail(email);
 
-            bool ok = allowLogin(user.Password, hash);
+            bool ok = allowLogin(user.Password, password);
 
             MessageBox.Show(ok.ToString());
         }
 
         private bool allowLogin(string uPass, string lPass)
         {
-            byte[] uHashBytes = Convert.FromBase64String(uPass);
-
-            byte[] salt = new byte[16];
-            Array.Copy(uHashBytes, 0, salt, 0, 16);
-
-            var pbkdf2 = new Rfc2898DeriveBytes(lPass, salt, 10000);
-
-            byte[] hash = pbkdf2.GetBytes(20);
-
-            bool success = true;
-            for (int i = 0; i < 20; i++)
+            if (Common.Verify(lPass, uPass))
             {
-                if (uHashBytes[i + 16] != hash[i])
-                {
-                    success = false;
-                }
+                return true;
             }
 
-            return success;
+            return false;
         }
     }
 }
