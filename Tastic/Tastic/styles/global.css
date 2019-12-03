@@ -5,11 +5,9 @@
     height: 100vh;
 }
 
-.row {
-    margin: 0px;
-}
+.row { margin: 0px; }
 
-.formThingy {
+.flexThingy {
     display: flex;
     align-content: center;
 }
