@@ -14,7 +14,7 @@
 
 .formContainer {
     margin: auto;
-    margin-top: calc(100% - 90%);
+    margin-top: calc(100% - 95%);
     max-width: 25%;
 }
 
@@ -42,4 +42,8 @@
     background-color: #F9FFF4;
     border-color: #8FDD3C;
     transition: 0.3s all ease;
+}
+
+.invisible-cust {
+    display: none;
 }
