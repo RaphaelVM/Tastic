@@ -105,9 +105,11 @@
     <Compile Include="classes\OrderLines.cs" />
     <Compile Include="classes\Product.cs" />
     <Compile Include="classes\Role.cs" />
+    <Compile Include="classes\Translation.cs" />
     <Compile Include="classes\User.cs" />
     <Compile Include="classes\Wallet.cs" />
     <Compile Include="common\Common.cs" />
+    <Compile Include="common\SetTranslations.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -131,6 +133,7 @@
     <Compile Include="register.aspx.designer.cs">
       <DependentUpon>register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="sql\TranslationSQL.cs" />
     <Compile Include="sql\UserSQL.cs" />
   </ItemGroup>
   <ItemGroup>

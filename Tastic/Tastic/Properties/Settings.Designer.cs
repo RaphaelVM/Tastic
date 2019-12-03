@@ -85,5 +85,14 @@ namespace Tastic.Properties {
                 return ((string)(this["ftp_host"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("NL")]
+        public string lang {
+            get {
+                return ((string)(this["lang"]));
+            }
+        }
     }
 }

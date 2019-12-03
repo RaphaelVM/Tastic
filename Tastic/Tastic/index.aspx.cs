@@ -14,8 +14,18 @@ namespace Tastic
 {
     public partial class index : System.Web.UI.Page
     {
+        public static List<Translation> Translations = new List<Translation>();
+
         public Common Common = new Common();
         private UserSQL UserSQL = new UserSQL();
+        private TranslationSQL TranslationSQL = new TranslationSQL();
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            Translations = TranslationSQL.getAllTranslations();
+
+            SetTranslations.setIndexTranslations(this);
+        }
 
         protected void btnRegistreren_Click(object sender, EventArgs e)
         {
@@ -43,5 +53,33 @@ namespace Tastic
 
             return false;
         }
+
+        #region 
+        /* Used to set text for translations */
+
+        public string Login
+        {
+            get { return btnLogin.Text; }
+            set { btnLogin.Text = value; }
+        }
+
+        public string Register
+        {
+            get { return btnRegistreren.Text; }
+            set { btnRegistreren.Text = value; }
+        }
+
+        public string Email
+        {
+            get { return txtEmail.Text; }
+            set { txtEmail.Attributes.Add("placeholder", value); }
+        }
+
+        public string Password
+        {
+            get { return txtPassword.Text; }
+            set { txtPassword.Attributes.Add("placeholder", value); }
+        }
+        #endregion
     }
 }
