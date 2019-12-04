@@ -24,7 +24,7 @@
       <Value Profile="(Default)">ftp.feddema.dev</Value>
     </Setting>
     <Setting Name="lang" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">NL</Value>
+      <Value Profile="(Default)">EN</Value>
     </Setting>
   </Settings>
 </SettingsFile>

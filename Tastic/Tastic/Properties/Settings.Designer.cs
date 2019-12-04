@@ -88,7 +88,7 @@ namespace Tastic.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("NL")]
+        [global::System.Configuration.DefaultSettingValueAttribute("EN")]
         public string lang {
             get {
                 return ((string)(this["lang"]));

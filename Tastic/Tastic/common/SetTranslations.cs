@@ -61,5 +61,69 @@ namespace Tastic.common
                 }
             }
         }
+
+        public static void setRegisterTranslations(Tastic.register register)
+        {
+            List<Translation> translations = register.Translations;
+            if (Properties.Settings.Default.lang == "NL")
+            {
+                foreach (Translation translation in translations)
+                {
+                    switch (translation.Description)
+                    {
+                        case "cancelKnop":
+                            register.Cancel = translation.NL;
+                            break;
+                        case "registerKnop":
+                            register.Register = translation.NL;
+                            break;
+                        case "firstnameInput":
+                            register.Firstname = translation.NL;
+                            break;
+                        case "lastnameInput":
+                            register.Lastname = translation.NL;
+                            break;
+                        case "passwordInput":
+                            register.Password = translation.NL;
+                            break;
+                        case "passwordInputRepeat":
+                            register.PasswordRepeat = translation.NL;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+            else if (Properties.Settings.Default.lang == "EN")
+            {
+                foreach (Translation translation in translations)
+                {
+                    switch (translation.Description)
+                    {
+                        case "cancelKnop":
+                            register.Cancel = translation.EN;
+                            break;
+                        case "registerKnop":
+                            register.Register = translation.EN;
+                            break;
+                        case "firstnameInput":
+                            register.Firstname = translation.EN;
+                            break;
+                        case "lastnameInput":
+                            register.Lastname = translation.EN;
+                            break;
+                        case "passwordInput":
+                            register.Password = translation.EN;
+                            break;
+                        case "passwordInputRepeat":
+                            register.PasswordRepeat = translation.EN;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+
+        }
     }
 }
