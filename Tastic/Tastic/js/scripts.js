@@ -1,4 +1,13 @@
-﻿// Check if the 2 inputs match eachother, if so the user can continue if not the register button is disabled.
+﻿// Hamburger menu funcs
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+
+// Check if the 2 inputs match eachother, if so the user can continue if not the register button is disabled.
 function checkPass() {
     // Wait a very small amount of time so the value can properly be taken.
     setTimeout(function () {

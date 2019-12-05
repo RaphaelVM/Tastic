@@ -9,6 +9,7 @@
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
         <link rel="stylesheet" type="text/css" href="css/bootstrap-grid.css" />
         <link rel="stylesheet" type="text/css" href="css/bootstrap-reboot.css" />
+
         <!-- Custom css -->
         <link href="styles/global.css" rel="stylesheet" />
 
@@ -21,17 +22,38 @@
         <!-- Bootstrap js -->
         <script src="js/bootstrap.js"></script>
         <script src="js/bootstrap.bundle.js"></script>
+        
+        <!-- Fontawesome js -->
+        <script src="https://kit.fontawesome.com/244b76c52f.js" crossorigin="anonymous"></script>
     </head>
-    <body>
+    <body>  
+        <div id="mySidenav" class="sidenav text-left">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Clients</a>
+            <a href="#">Contact</a>
+        </div>
+
+        <nav class="navbar navbar-inverse navbar-cust">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+                </div>
+                <ul class="nav navbar-nav navbar-center">
+                    <li><img src="images/finalLogoTastic.png" width="120px" alt="tasticLogo" class="text-center" /></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <i class="fas fa-shopping-cart"></i>
+                </ul>
+            </div>
+        </nav>
+
         <form id="form1" runat="server">
-            <div class="backgroundMain">
+            <div class="backgroundProducts">
                 <div class="row">
                     <div class="col-md-12 flexThingy">
-                        <div class="formContainer">
-                            <div class="logoLogin">
-                                <img src="images/finalLogoTastic.png" />
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>
