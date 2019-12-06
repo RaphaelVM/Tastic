@@ -1,5 +1,15 @@
-﻿h1, h2, h3, h4, p {
-    color: #333333;
+﻿h1, h2, h3, h4, h5, h6, p { 
+    color: #333333; 
+    margin-bottom: 2rem;
+}
+
+/* Puts 10% margin top */
+.mg-top-calc-10 { margin-top: calc(100% - 90%) !important; }
+
+.spacer {
+    width: 100%;
+    height: 1px;
+    background-color: #F9FFF4;
 }
 
 .backgroundMain {
@@ -19,7 +29,7 @@
 .formContainer {
     margin: auto;
     margin-top: calc(100% - 95%);
-    max-width: 25%;
+    max-width: 30%;
 }
 
 .logoLogin img {
@@ -69,31 +79,35 @@
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #111;
+    background-color: #8FDD3C;
+    box-shadow: 0px 1px 3px;
     overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
+    transition: 0.3s;
+    padding-top: 5%;
 }
 
     .sidenav a {
         padding: 8px 8px 8px 32px;
         text-decoration: none;
         font-size: 25px;
-        color: #818181;
+        color: #333333;
         display: block;
         transition: 0.3s;
     }
 
         .sidenav a:hover {
-            color: #f1f1f1;
+            color: #F9FFF4;
         }
 
     .sidenav .closebtn {
         position: absolute;
         top: 0;
         right: 25px;
-        font-size: 36px;
         margin-left: 50px;
+    }
+
+    .sidenav .closebtn:hover {
+        color: #333333;
     }
 
 .navbar-nav.navbar-center {
@@ -104,6 +118,7 @@
 
 .navbar-cust {
     background-color: #8FDD3C;
+    box-shadow: 0px 1px 3px;
 }
 
 .shopping-cart {
