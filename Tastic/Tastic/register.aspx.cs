@@ -116,5 +116,10 @@ namespace Tastic
         }
 
         #endregion
+
+        protected void btnCancel_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("index.aspx", true);
+        }
     }
 }

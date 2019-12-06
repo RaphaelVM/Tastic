@@ -39,9 +39,14 @@ namespace Tastic
 
             User user = UserSQL.getUserFromEmail(email);
 
-            bool ok = allowLogin(user.Password, password);
+            bool allowedLogin = allowLogin(user.Password, password);
 
-            MessageBox.Show(ok.ToString());
+            MessageBox.Show(allowedLogin.ToString());
+
+            if (allowedLogin)
+            {
+                Response.Redirect("products.aspx", true);
+            }
         }
 
         private bool allowLogin(string uPass, string lPass)

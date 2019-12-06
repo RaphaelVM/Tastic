@@ -54,7 +54,7 @@
                                     <asp:TextBox ID="txtWachtwoordHerh" class="form-control formStyle" placeholder="Herhaal wachtwoord" runat="server" TextMode="Password" OnKeyUp="javascript:checkPass(this);"></asp:TextBox>
                                 </div>
                                 <asp:Button runat="server" ID="btnRegister" Text="Registreren" CssClass="btn btn-primary buttonStyle float-left" OnClick="btnRegister_Click" />
-                                <asp:Button runat="server" ID="btnCancel" Text="Annuleren" CssClass="btn btn-primary buttonStyle float-right" />
+                                <asp:Button runat="server" ID="btnCancel" Text="Annuleren" CssClass="btn btn-primary buttonStyle float-right" OnClick="btnCancel_Click" />
                             </form>
                         </div>
                     </div>
