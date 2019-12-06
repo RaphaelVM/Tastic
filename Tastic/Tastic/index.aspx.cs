@@ -41,8 +41,6 @@ namespace Tastic
 
             bool allowedLogin = allowLogin(user.Password, password);
 
-            MessageBox.Show(allowedLogin.ToString());
-
             if (allowedLogin)
             {
                 Response.Redirect("products.aspx", true);

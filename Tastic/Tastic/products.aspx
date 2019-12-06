@@ -41,10 +41,10 @@
                     <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
                 </div>
                 <ul class="nav navbar-nav navbar-center">
-                    <li><img src="images/finalLogoTastic.png" width="120px" alt="tasticLogo" class="text-center" /></li>
+                    <li><img src="images/finalLogoBlack.png" width="120px" alt="tasticLogo" class="text-center" /></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <i class="fas fa-shopping-cart"></i>
+                    <i class="fas fa-shopping-cart shopping-cart"></i>
                 </ul>
             </div>
         </nav>
@@ -53,7 +53,18 @@
             <div class="backgroundProducts">
                 <div class="row">
                     <div class="col-md-12 flexThingy">
+                        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
 
+                        <asp:Panel ID="panContainer" runat="server" BorderColor="#8FDD3C" BorderStyle="Solid" BorderWidth="1px">
+                            fafa
+
+                            fafa
+
+                            <br />
+
+                            faf
+
+                        </asp:Panel>
                     </div>
                 </div>
             </div>

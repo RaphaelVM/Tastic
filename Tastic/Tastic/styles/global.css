@@ -50,6 +50,8 @@
 
 .backgroundProducts {
     background-color: white;
+    margin-right: 10%;
+    margin-left: 10%;
 }
 
 .products-container {
@@ -98,4 +100,8 @@
 
 .navbar-cust {
     background-color: #8FDD3C;
+}
+
+.shopping-cart {
+    font-size: 16pt;
 }
