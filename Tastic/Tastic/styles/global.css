@@ -105,3 +105,24 @@
 .shopping-cart {
     font-size: 16pt;
 }
+
+.categories {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.categories-list {
+    margin-top: 10%;
+    margin-bottom: 1%;
+}
+
+.btn-to-lbl {
+    border: 0px;
+    background-color: transparent;
+    font-weight: 400;
+    color: #333;
+}
+
+.butt-selected {
+    font-weight: bold;
+}

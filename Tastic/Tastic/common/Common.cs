@@ -101,5 +101,14 @@ namespace Tastic.common
             return true;
         }
 
+        public void setUser(User user)
+        {
+            Properties.Settings.Default.user_id = user.uID.ToString();
+            Properties.Settings.Default.user_fName = user.Firstname;
+            Properties.Settings.Default.user_lName = user.Lastname;
+            Properties.Settings.Default.user_sex = user.Sex;
+
+            Properties.Settings.Default.Save();
+        }
     }
 }

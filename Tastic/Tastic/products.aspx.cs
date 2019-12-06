@@ -13,5 +13,35 @@ namespace Tastic
         {
 
         }
+
+
+        #region
+        /* Category buttons */
+        protected void btnAlles_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("products.aspx?all");
+        }
+
+        protected void btnbroodjes_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("products.aspx?broodjes");
+        }
+
+        protected void btnSoepen_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("products.aspx?soepen");
+        }
+
+        protected void btnSnacks_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("products.aspx?snacks");
+        }
+
+        protected void btnDranken_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("products.aspx?dranken");
+        }
+
+        #endregion
     }
 }

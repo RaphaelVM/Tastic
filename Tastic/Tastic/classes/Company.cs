@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Tastic.sql;
 
 namespace Tastic.classes
 {
@@ -16,6 +17,7 @@ namespace Tastic.classes
         public string Phonenumber;
         public string Emailadress;
         public Catering Catering;
+        public List<Product> products = new List<Product>();
 
         public Company() { }
 
@@ -31,6 +33,14 @@ namespace Tastic.classes
             Phonenumber = phonenumber;
             Emailadress = emailadress;
             Catering = catering;
+            products = this.getProducts(coid);
+        }
+
+        private List<Product> getProducts(int coID)
+        {
+            ProductSQL productSQL = new ProductSQL();
+
+            return productSQL.getProducts(coID);
         }
     }
 }
