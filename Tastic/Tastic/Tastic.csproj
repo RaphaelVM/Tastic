@@ -94,6 +94,7 @@
     <Content Include="js\scripts.js" />
     <Content Include="products.aspx" />
     <Content Include="register.aspx" />
+    <Content Include="settings.aspx" />
     <Content Include="styles\global.css" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -141,6 +142,13 @@
     </Compile>
     <Compile Include="register.aspx.designer.cs">
       <DependentUpon>register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="settings.aspx.cs">
+      <DependentUpon>settings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="settings.aspx.designer.cs">
+      <DependentUpon>settings.aspx</DependentUpon>
     </Compile>
     <Compile Include="sql\TranslationSQL.cs" />
     <Compile Include="sql\UserSQL.cs" />

@@ -62,7 +62,6 @@ C:\Users\niels\source\repos\Tastic\Tastic\Tastic\obj\Debug\Tastic.csproj.CopyCom
 C:\Users\niels\source\repos\Tastic\Tastic\Tastic\obj\Debug\Tastic.dll
 C:\Users\niels\source\repos\Tastic\Tastic\Tastic\obj\Debug\Tastic.pdb
 C:\Users\raphaelvanmarion\source\repos\Tastic\Tastic\Tastic\obj\Debug\Tastic.csprojAssemblyReference.cache
-C:\Users\raphaelvanmarion\source\repos\Tastic\Tastic\Tastic\obj\Debug\Tastic.csproj.CoreCompileInputs.cache
 C:\Users\raphaelvanmarion\source\repos\Tastic\Tastic\Tastic\obj\Debug\Tastic.dll
 C:\Users\raphaelvanmarion\source\repos\Tastic\Tastic\Tastic\obj\Debug\Tastic.pdb
 C:\Users\raphaelvanmarion\source\repos\Tastic\Tastic\Tastic\bin\Tastic.dll.config
