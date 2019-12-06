@@ -14,7 +14,7 @@
 
 .formContainer {
     margin: auto;
-    margin-top: calc(100% - 90%);
+    margin-top: calc(100% - 95%);
     max-width: 25%;
 }
 
@@ -42,4 +42,60 @@
     background-color: #F9FFF4;
     border-color: #8FDD3C;
     transition: 0.3s all ease;
+}
+
+.invisible-cust {
+    display: none;
+}
+
+.backgroundProducts {
+    background-color: white;
+}
+
+.products-container {
+    color: #333;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.navbar-nav.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+}
+
+.navbar-cust {
+    background-color: #8FDD3C;
 }

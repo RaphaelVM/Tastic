@@ -12,6 +12,12 @@
         <!-- Custom css -->
         <link href="styles/global.css" rel="stylesheet" />
 
+        <!-- Custom js -->
+        <script src="js/scripts.js"></script>
+
+        <!-- jQuery js -->
+        <script src="js/jquery-3.4.1.min.js"></script>
+
         <!-- Bootstrap js -->
         <script src="js/bootstrap.js"></script>
         <script src="js/bootstrap.bundle.js"></script>
@@ -26,23 +32,29 @@
                                 <img src="images/finalLogoTastic.png" />
                             </div>
                             <form>
-                                <div class="form-group">
-                                    <input type="text" class="form-control formStyle" placeholder="Voornaam" />
+                                <div runat="server" class="form-group invisible-cust" id="createERRPar">
+                                    <asp:Label ID="lblCreateERR" runat="server" Text=""></asp:Label>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control formStyle" placeholder="Achternaam" />
+                                     <asp:TextBox ID="txtVoornaam" class="form-control formStyle" placeholder="Voornaam" runat="server"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control formStyle" placeholder="E-mail" />
+                                     <asp:TextBox ID="txtAchternaam" class="form-control formStyle" placeholder="Achternaam" runat="server"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control formStyle" placeholder="Wachtwoord" />
+                                     <asp:TextBox ID="txtEmail" class="form-control formStyle" placeholder="Email" runat="server"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control formStyle" placeholder="Herhaal wachtwoord" />
+                                    <asp:TextBox ID="txtWachtwoord" class="form-control formStyle" placeholder="Wachtwoord" runat="server" TextMode="Password"></asp:TextBox>
                                 </div>
-                                <asp:Button runat="server" Text="Registreren" CssClass="btn btn-primary buttonStyle float-left" />
-                                <asp:Button runat="server" Text="Annuleren" CssClass="btn btn-primary buttonStyle float-right" />
+                                <div class="form-group invisible-cust" id="passERR">
+                                    <asp:Label ID="lblPass" runat="server" Text=""></asp:Label>
+                                </div>
+                                <div class="form-group">
+                                    <asp:TextBox ID="txtWachtwoordHerh" class="form-control formStyle" placeholder="Herhaal wachtwoord" runat="server" TextMode="Password" OnKeyUp="javascript:checkPass(this);"></asp:TextBox>
+                                </div>
+                                <asp:Button runat="server" ID="btnRegister" Text="Registreren" CssClass="btn btn-primary buttonStyle float-left" OnClick="btnRegister_Click" />
+                                <asp:Button runat="server" ID="btnCancel" Text="Annuleren" CssClass="btn btn-primary buttonStyle float-right" />
                             </form>
                         </div>
                     </div>

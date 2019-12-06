@@ -9,7 +9,7 @@ namespace Tastic.classes
     {
         public int uID;
         public string Email;
-        private string Password;
+        public string Password;
         public string Firstname;
         public string Lastname;
         public string Sex;

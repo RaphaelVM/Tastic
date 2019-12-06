@@ -26,13 +26,13 @@
                             </div>
                             <form>
                                 <div class="form-group">
-                                    <input type="email" class="form-control formStyle" placeholder="E-mail" />
+                                    <asp:TextBox ID="txtEmail" runat="server" class="form-control formStyle" placeholder="E-mail"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control formStyle" placeholder="Wachtwoord" />
+                                    <asp:TextBox ID="txtPassword" runat="server" type="password" class="form-control formStyle" placeholder="Wachtwoord"></asp:TextBox>
                                 </div>
-                                <asp:Button runat="server" Text="Aanmelden" CssClass="btn btn-primary buttonStyle float-left" />
-                                <asp:Button runat="server" Text="Registreren" CssClass="btn btn-primary buttonStyle float-right" />
+                                <asp:Button runat="server" Text="Aanmelden" CssClass="btn btn-primary buttonStyle float-left" ID="btnLogin" OnClick="btnLogin_Click" />
+                                <asp:Button ID="btnRegistreren" runat="server" Text="Registreren" CssClass="btn btn-primary buttonStyle float-right" OnClick="btnRegistreren_Click" />
                             </form>
                         </div>
                     </div>
