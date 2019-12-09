@@ -27,32 +27,32 @@
         <script src="https://kit.fontawesome.com/244b76c52f.js" crossorigin="anonymous"></script>
     </head>
     <body>  
-        <div id="mySidenav" class="sidenav text-left sidenav-cust">
-            <a href="javascript:void(0)" class="closebtn " onclick="closeNav()"><i class="fas fa-times"></i></a>
-            <a href="#" id="walletAmount" runat="server">"Wallet Waarde"</a>
-            <div class="spacer"></div>
-            <a href="#">Producten</a>
-            <div class="spacer"></div>
-            <a href="#">Instellingen</a>
-            <div class="spacer"></div>
-            <a href="#">Afmelden</a>
-        </div>
-
-        <nav class="navbar navbar-inverse navbar-cust">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
-                </div>
-                <ul class="nav navbar-nav navbar-center">
-                    <li><img src="images/finalLogoBlack.png" width="120px" alt="tasticLogo" class="text-center" /></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <i class="fas fa-shopping-cart shopping-cart"></i>
-                </ul>
-            </div>
-        </nav>
-
         <form id="form1" runat="server">
+            <div id="mySidenav" class="sidenav text-left sidenav-cust">
+                <a href="javascript:void(0)" class="closebtn " onclick="closeNav()"><i class="fas fa-times"></i></a>
+                <a href="#" id="walletAmount" runat="server">"Wallet Waarde"</a>
+                <div class="spacer"></div>
+                <a href="#">Producten</a>
+                <div class="spacer"></div>
+                <a href="#">Instellingen</a>
+                <div class="spacer"></div>
+                <asp:Button ID="btnLogout" runat="server" Text="Afmelden" CssClass="btn-to-lbl" OnClick="btnLogout_Click" />
+            </div>
+
+            <nav class="navbar navbar-inverse navbar-cust">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+                    </div>
+                    <ul class="nav navbar-nav navbar-center">
+                        <li><img src="images/finalLogoBlack.png" width="120px" alt="tasticLogo" class="text-center" /></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <i class="fas fa-shopping-cart shopping-cart"></i>
+                    </ul>
+                </div>
+            </nav>
+
             <div class="backgroundProducts">
                 <div class="row">
                     <div class="col-md-12">

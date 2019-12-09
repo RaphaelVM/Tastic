@@ -46,7 +46,7 @@ namespace Tastic
                 {
                     createERRPar.Attributes.CssStyle.Add("display", "block");
                     createERRPar.Attributes["class"] += " alert";
-                    createERRPar.Attributes["class"] += " alert-successs";
+                    createERRPar.Attributes["class"] += " alert-success";
                     lblCreateERR.Text =
                         (Properties.Settings.Default.lang == "NL")
                         ? "Account was succesvol aangemaakt!"

@@ -25,7 +25,7 @@ namespace Tastic
 
             productsContainer.Controls.Add(new LiteralControl(createProductList()));
 
-            walletAmount.InnerHtml = $"&euro;{user.Wallet.Amount.ToString()}";
+            walletAmount.InnerHtml = $"&euro;{user.Wallet.Amount.ToString("F2")}";
         }
 
         private string createProductList()
@@ -94,5 +94,19 @@ namespace Tastic
         }
 
         #endregion
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            // Clear properties
+            Properties.Settings.Default.user_fName = "";
+            Properties.Settings.Default.user_id = "";
+            Properties.Settings.Default.user_lName = "";
+            Properties.Settings.Default.user_sex = "";
+
+            Properties.Settings.Default.Save();
+
+            // Redirect to login
+            Response.Redirect("index.aspx");
+        }
     }
 }

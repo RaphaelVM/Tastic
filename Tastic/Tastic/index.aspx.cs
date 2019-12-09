@@ -38,16 +38,24 @@ namespace Tastic
             string email = txtEmail.Text;
             string password = txtPassword.Text;
 
-            User user = UserSQL.getUserFromEmail(email);
-
-            bool allowedLogin = allowLogin(user.Password, password);
-
-            if (allowedLogin)
+            if (email == "" || password == "")
             {
-                // Set user stuff in the settings
-                Common.setUser(user);
+                // TODO: Error message
+                return;
+            }
+            else
+            {
+                User user = UserSQL.getUserFromEmail(email);
 
-                Response.Redirect("products.aspx", true);
+                bool allowedLogin = allowLogin(user.Password, password);
+
+                if (allowedLogin)
+                {
+                    // Set user stuff in the settings
+                    Common.setUser(user);
+
+                    Response.Redirect("products.aspx", true);
+                }
             }
         }
 
