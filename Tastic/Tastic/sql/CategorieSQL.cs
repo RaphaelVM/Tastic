@@ -48,5 +48,38 @@ namespace Tastic.sql
                 return categorie;
             }
         }
+
+        public Categorie GetCategorieFromProduct(int pID)
+        {
+            Categorie categorie = new Categorie();
+            try
+            {
+                database.OpenGeneralConnection();
+
+                using (var cmd = new MySqlCommand())
+                {
+                    cmd.Connection = database.GeneralConnection;
+                    cmd.CommandText = "SELECT * FROM categories WHERE cID = " +
+                                        "(SELECT cID FROM products WHERE pID = @pid)";
+                    cmd.Parameters.AddWithValue("@pid", pID);
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            categorie = newCategorie(reader);
+                        }
+                    }
+                }
+
+                return categorie;
+
+            }
+            catch (Exception err)
+            {
+                Console.WriteLine(err);
+                return categorie;
+            }
+        }
     }
 }

@@ -31,10 +31,11 @@ namespace Tastic
         private string createProductList()
         {
             string html = "";
+            int ii = 0;
             foreach (Product product in productList)
             {
                 html += "<div class=\"products-product-container\">" +
-                            "<div class=\"product\">" +
+                            "<div class=\"product d-flex flex-row bd-highlight align-items-center\">" +
                                 "<div class=\"product-image\">" + // image
                                     $"<img src=\"{product.Productimage}\" alt=\"{product.Productimage}\" />" +
                                 "</div>" +
@@ -45,12 +46,21 @@ namespace Tastic
                                     $"<span>{product.Description}</span>" +
                                 "</div>" +
                                 "" +
-                                "<div class=\"product-addtocart\">" +
-                                    "<div class=\"product-addtocart-icon\">" +
+                                "<div class=\"product-addtocart text-center\">" +
+                                    "<div class=\"product-addtocart-icon product-addtocart-icon  align-items-center justify-content-center\">" +
+                                        "+" +
                                     "</div>" +
-                                "<div>" +
+                                "</div>" +
                             "</div>" +
                         "</div>";
+
+                ii++;
+
+                // if it's equal we have reached the end of the list so we don't need a spacer anymore
+                if (ii != productList.Count)
+                {
+                    html += "<div class=\"spacer-products\"></div>";
+                }
             }
 
             return html;

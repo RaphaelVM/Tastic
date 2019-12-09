@@ -10,6 +10,7 @@ namespace Tastic.classes
     {
         private CompanySQL companySQL = new CompanySQL();
         private ProductSQL productSQL = new ProductSQL();
+        private CategorieSQL categorieSQL = new CategorieSQL();
 
         public int coID;
         public string Name;
@@ -41,7 +42,18 @@ namespace Tastic.classes
 
         protected List<Product> getProducts(int coID)
         {
-            return productSQL.getProducts(coID);
+            // We add the categories here. Problems arose when doing it in the constructor
+            List<Product> products = productSQL.getProducts(coID);
+
+            List<Product> newProductList = new List<Product>();
+            foreach (Product product in products)
+            {
+                product.Categorie = categorieSQL.GetCategorieFromProduct(product.pID);
+
+                newProductList.Add(product);
+            }
+
+            return products;
         }
 
         public Company getCompanyFromUser(int uid)

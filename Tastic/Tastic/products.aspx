@@ -64,7 +64,7 @@
                             <asp:Button ID="btnDranken" runat="server" Text="Dranken" CssClass="btn-to-lbl categories" OnClick="btnDranken_Click" />
                         </div>
 
-                        <asp:Panel ID="productsContainer" runat="server" BorderColor="#8FDD3C" BorderStyle="Solid" BorderWidth="1px" BackColor="#f9fff4">
+                        <asp:Panel ID="productsContainer" runat="server" CssClass="productsContainer">
                             
                         </asp:Panel>
                     </div>

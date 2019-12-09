@@ -31,9 +31,9 @@ namespace Tastic.classes
             Active = active;
             Description = description;
             Price = price;
-            Categorie = this.getCategorie(cid);
         }
 
+        // Don't do this for now.
         public Categorie getCategorie(int cid)
         {
             return categorieSQL.GetCategorie(cid);

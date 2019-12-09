@@ -29,7 +29,7 @@ namespace Tastic.sql
                     cmd.Connection = database.GeneralConnection;
                     cmd.CommandText = "SELECT pro.*, ptc.Price as Price, ptc.Description as Description " +
                                       "FROM products pro " +
-                                      "INNER JOIN producttocomp ptc "+
+                                      "INNER JOIN producttocomp ptc ON pro.pID = ptc.pID " +
                                       "WHERE ptc.coID = @coid ";
                     cmd.Parameters.AddWithValue("@coid", coID);
 
