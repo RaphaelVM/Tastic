@@ -4,14 +4,24 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Tastic.classes;
+using Tastic.sql;
+using Tastic.common;
 
 namespace Tastic
 {
     public partial class products : System.Web.UI.Page
     {
+        private List<Product> productList = new List<Product>();
+        private Company company = new Company();
+        private User user = new User();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            // Get the needed classes
+            user = user.getUser(Convert.ToInt32(Properties.Settings.Default.user_id));
+            company = company.getCompanyFromUser(Convert.ToInt32(Properties.Settings.Default.user_id));
+            productList = company.products;
         }
 
 

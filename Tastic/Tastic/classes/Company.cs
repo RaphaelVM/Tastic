@@ -8,6 +8,9 @@ namespace Tastic.classes
 {
     public class Company
     {
+        private CompanySQL companySQL = new CompanySQL();
+        private ProductSQL productSQL = new ProductSQL();
+
         public int coID;
         public string Name;
         public string Street;
@@ -36,11 +39,14 @@ namespace Tastic.classes
             products = this.getProducts(coid);
         }
 
-        private List<Product> getProducts(int coID)
+        protected List<Product> getProducts(int coID)
         {
-            ProductSQL productSQL = new ProductSQL();
-
             return productSQL.getProducts(coID);
+        }
+
+        public Company getCompanyFromUser(int uid)
+        {
+            return companySQL.getCompanyFromUser(uid);
         }
     }
 }

@@ -13,7 +13,39 @@ namespace Tastic.sql
         {
             return new User(Convert.ToInt32(r["uID"]), r["Email"].ToString(), r["Password"].ToString(),
                             r["Firstname"].ToString(), r["Lastname"].ToString(), r["Sex"].ToString(),
-                            new Role(), new Wallet());
+                            Convert.ToInt32(r["rID"]));
+        }
+
+        public User getUser(int uID)
+        {
+            User user = new User();
+            try
+            {
+                database.OpenGeneralConnection();
+
+                using(var cmd = new MySqlCommand())
+                {
+                    cmd.Connection = database.GeneralConnection;
+                    cmd.CommandText = "SELECT * FROM users WHERE uID = @uid";
+                    cmd.Parameters.AddWithValue("@uid", uID);
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            user = newUser(reader);
+                        }
+                    }
+
+                }
+
+                return user;
+
+            } catch (Exception err)
+            {
+                Console.WriteLine(err);
+                return user;
+            }
         }
 
         public bool createNewUser(string firstname, string lastname, string password, string email)

@@ -143,8 +143,12 @@
       <DependentUpon>register.aspx</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
+    <Compile Include="sql\CompanySQL.cs" />
+    <Compile Include="sql\ProductSQL.cs" />
+    <Compile Include="sql\RoleSQL.cs" />
     <Compile Include="sql\TranslationSQL.cs" />
     <Compile Include="sql\UserSQL.cs" />
+    <Compile Include="sql\WalletSQL.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

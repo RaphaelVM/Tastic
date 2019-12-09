@@ -48,5 +48,38 @@ namespace Tastic.sql
                 return company;
             }
         }
+
+        public Company getCompanyFromUser(int uID)
+        {
+            Company company = new Company();
+            try
+            {
+                database.OpenGeneralConnection();
+
+                using (var cmd = new MySqlCommand())
+                {
+                    cmd.Connection = database.GeneralConnection;
+                    cmd.CommandText = "SELECT * FROM company WHERE coID = " +
+                                      "(SELECT coID FROM usertocomp WHERE uID = @uid)";
+                    cmd.Parameters.AddWithValue("@uid", uID);
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            company = newCompany(reader);
+                        }
+                    }
+
+                }
+
+                return company;
+            }
+            catch (Exception err)
+            {
+                Console.WriteLine(err);
+                return company;
+            }
+        }
     }
 }

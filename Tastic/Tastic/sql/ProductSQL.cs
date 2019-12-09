@@ -7,7 +7,7 @@ using Tastic.classes;
 
 namespace Tastic.sql
 {
-    public class ProductsSQL
+    public class ProductSQL
     {
         private Product newProduct(MySqlDataReader r)
         {
