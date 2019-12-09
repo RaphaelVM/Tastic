@@ -52,18 +52,17 @@
         <form id="form1" runat="server">
             <div class="backgroundProducts">
                 <div class="row">
-                    <div class="col-md-12 flexThingy">
-                        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+                    <div class="col-md-12">
+                        <div class="d-flex justify-content-center align-items-center categories-list">
+                            <asp:Button ID="btnAlles" runat="server" Text="Alle producten" CssClass="btn-to-lbl categories" OnClick="btnAlles_Click" style="height: 29px" />
+                            <asp:Button ID="btnBroodjes" runat="server" Text="Broodjes" CssClass="btn-to-lbl categories" OnClick="btnbroodjes_Click" />
+                            <asp:Button ID="btnSoepen" runat="server" Text="Soepen" CssClass="btn-to-lbl categories" OnClick="btnSoepen_Click" />
+                            <asp:Button ID="btnSnacks" runat="server" Text="Snacks" CssClass="btn-to-lbl categories" OnClick="btnSnacks_Click" />
+                            <asp:Button ID="btnDranken" runat="server" Text="Dranken" CssClass="btn-to-lbl categories" OnClick="btnDranken_Click" />
+                        </div>
 
-                        <asp:Panel ID="panContainer" runat="server" BorderColor="#8FDD3C" BorderStyle="Solid" BorderWidth="1px">
-                            fafa
-
-                            fafa
-
-                            <br />
-
-                            faf
-
+                        <asp:Panel ID="productsContainer" runat="server" BorderColor="#8FDD3C" BorderStyle="Solid" BorderWidth="1px" BackColor="#f9fff4">
+                            
                         </asp:Panel>
                     </div>
                 </div>

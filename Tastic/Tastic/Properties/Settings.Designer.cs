@@ -13,7 +13,7 @@ namespace Tastic.Properties {
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.2.0.0")]
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+    public sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
         
@@ -92,6 +92,54 @@ namespace Tastic.Properties {
         public string lang {
             get {
                 return ((string)(this["lang"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("NULL")]
+        public string user_id {
+            get {
+                return ((string)(this["user_id"]));
+            }
+            set {
+                this["user_id"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("NULL")]
+        public string user_fName {
+            get {
+                return ((string)(this["user_fName"]));
+            }
+            set {
+                this["user_fName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("NULL")]
+        public string user_lName {
+            get {
+                return ((string)(this["user_lName"]));
+            }
+            set {
+                this["user_lName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("NULL")]
+        public string user_sex {
+            get {
+                return ((string)(this["user_sex"]));
+            }
+            set {
+                this["user_sex"] = value;
             }
         }
     }

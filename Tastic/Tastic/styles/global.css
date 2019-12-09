@@ -124,3 +124,58 @@
 .shopping-cart {
     font-size: 16pt;
 }
+<<<<<<< HEAD
+=======
+
+.categories {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.categories-list {
+    margin-top: 10%;
+    margin-bottom: 1%;
+}
+
+.btn-to-lbl {
+    border: 0px;
+    background-color: transparent;
+    font-weight: 400;
+    color: #333;
+}
+
+.butt-selected {
+    font-weight: bold;
+}
+
+.products-product-container {
+    width: 100%;
+    display: inline-block;
+}
+
+.product {
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.product-image {
+    width: 20%;
+    float: left;
+}
+
+.product-description {
+    width: 70%;
+    float: left;
+}
+
+.product-addtocart {
+    width: 10%;
+    float: left;
+}
+
+.product-addtocart-icon {
+    width: 25px;
+    height: 25px;
+    background-color: green;
+}
+

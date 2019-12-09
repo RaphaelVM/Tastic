@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Tastic.Properties;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -43,6 +44,9 @@ namespace Tastic
 
             if (allowedLogin)
             {
+                // Set user stuff in the settings
+                Common.setUser(user);
+
                 Response.Redirect("products.aspx", true);
             }
         }

@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Tastic.sql;
 
 namespace Tastic.classes
 {
     public class User
     {
+        private UserSQL userSQL = new UserSQL();
+        private RoleSQL roleSQL = new RoleSQL();
+        private WalletSQL walletSQL = new WalletSQL();
+
         public int uID;
         public string Email;
         public string Password;
@@ -19,7 +24,7 @@ namespace Tastic.classes
         public User() { }
 
         public User(int uid, string email, string password, string firstname,
-                    string lastname, string sex, Role role, Wallet wallet)
+                    string lastname, string sex, int roleid)
         {
             uID = uid;
             Email = email;
@@ -27,8 +32,13 @@ namespace Tastic.classes
             Firstname = firstname;
             Lastname = lastname;
             Sex = sex;
-            Role = role;
-            Wallet = wallet;
+            Role = roleSQL.getRole(roleid);
+            Wallet = walletSQL.getWallet(uid);
+        }
+
+        public User getUser(int uID)
+        {
+            return userSQL.getUser(uID);
         }
     }
 }

@@ -26,5 +26,17 @@
     <Setting Name="lang" Type="System.String" Scope="Application">
       <Value Profile="(Default)">EN</Value>
     </Setting>
+    <Setting Name="user_id" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">NULL</Value>
+    </Setting>
+    <Setting Name="user_fName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">NULL</Value>
+    </Setting>
+    <Setting Name="user_lName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">NULL</Value>
+    </Setting>
+    <Setting Name="user_sex" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">NULL</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
