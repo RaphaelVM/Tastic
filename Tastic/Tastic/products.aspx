@@ -27,12 +27,15 @@
         <script src="https://kit.fontawesome.com/244b76c52f.js" crossorigin="anonymous"></script>
     </head>
     <body>  
-        <div id="mySidenav" class="sidenav text-left">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="#">About</a>
-            <a href="#">Services</a>
-            <a href="#">Clients</a>
-            <a href="#">Contact</a>
+        <div id="mySidenav" class="sidenav text-left sidenav-cust">
+            <a href="javascript:void(0)" class="closebtn " onclick="closeNav()"><i class="fas fa-times"></i></a>
+            <a href="#" id="wallet-amount" runat="server">"Wallet Waarde"</a>
+            <div class="spacer"></div>
+            <a href="#">Producten</a>
+            <div class="spacer"></div>
+            <a href="#">Instellingen</a>
+            <div class="spacer"></div>
+            <a href="#">Afmelden</a>
         </div>
 
         <nav class="navbar navbar-inverse navbar-cust">
