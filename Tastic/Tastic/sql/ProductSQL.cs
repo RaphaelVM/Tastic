@@ -13,7 +13,8 @@ namespace Tastic.sql
         {
             return new Product(Convert.ToInt32(r["pID"]), r["Name"].ToString(),
                 Convert.ToInt32(r["Amount"]), r["Productimage"].ToString(),
-                Convert.ToBoolean(r["Active"]), new Categorie());
+                Convert.ToBoolean(r["Active"]), r["Description"].ToString(),
+                Convert.ToDouble(r["Price"]), Convert.ToInt32(r["cID"]));
         }
 
         public List<Product> getProducts(int coID)
@@ -26,7 +27,8 @@ namespace Tastic.sql
                 using (var cmd = new MySqlCommand())
                 {
                     cmd.Connection = database.GeneralConnection;
-                    cmd.CommandText = "SELECT pro.*, ptc.Price FROM products pro " +
+                    cmd.CommandText = "SELECT pro.*, ptc.Price as Price, ptc.Description as Description " +
+                                      "FROM products pro " +
                                       "INNER JOIN producttocomp ptc "+
                                       "WHERE ptc.coID = @coid ";
                     cmd.Parameters.AddWithValue("@coid", coID);

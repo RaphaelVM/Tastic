@@ -126,3 +126,34 @@
 .butt-selected {
     font-weight: bold;
 }
+
+.products-product-container {
+    width: 100%;
+    display: inline-block;
+}
+
+.product {
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.product-image {
+    width: 20%;
+    float: left;
+}
+
+.product-description {
+    width: 70%;
+    float: left;
+}
+
+.product-addtocart {
+    width: 10%;
+    float: left;
+}
+
+.product-addtocart-icon {
+    width: 25px;
+    height: 25px;
+    background-color: green;
+}

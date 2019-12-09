@@ -22,8 +22,37 @@ namespace Tastic
             user = user.getUser(Convert.ToInt32(Properties.Settings.Default.user_id));
             company = company.getCompanyFromUser(Convert.ToInt32(Properties.Settings.Default.user_id));
             productList = company.products;
+
+            productsContainer.Controls.Add(new LiteralControl(createProductList()));
         }
 
+        private string createProductList()
+        {
+            string html = "";
+            foreach (Product product in productList)
+            {
+                html += "<div class=\"products-product-container\">" +
+                            "<div class=\"product\">" +
+                                "<div class=\"product-image\">" + // image
+                                    $"<img src=\"{product.Productimage}\" alt=\"{product.Productimage}\" />" +
+                                "</div>" +
+                                "" +
+                                "<div class=\"product-description\">" + // Main body
+                                    $"<b>{product.Name}</b> <br />" +
+                                    $"<span>&euro;{product.Price.ToString().Replace(".", ",")}</span> <br />" +
+                                    $"<span>{product.Description}</span>" +
+                                "</div>" +
+                                "" +
+                                "<div class=\"product-addtocart\">" +
+                                    "<div class=\"product-addtocart-icon\">" +
+                                    "</div>" +
+                                "<div>" +
+                            "</div>" +
+                        "</div>";
+            }
+
+            return html;
+        }
 
         #region
         /* Category buttons */
