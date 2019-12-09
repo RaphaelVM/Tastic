@@ -29,7 +29,7 @@
     <body>  
         <div id="mySidenav" class="sidenav text-left sidenav-cust">
             <a href="javascript:void(0)" class="closebtn " onclick="closeNav()"><i class="fas fa-times"></i></a>
-            <a href="#" id="wallet-amount" runat="server">"Wallet Waarde"</a>
+            <a href="#" id="walletAmount" runat="server">"Wallet Waarde"</a>
             <div class="spacer"></div>
             <a href="#">Producten</a>
             <div class="spacer"></div>

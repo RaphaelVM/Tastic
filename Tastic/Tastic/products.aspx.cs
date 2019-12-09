@@ -24,6 +24,8 @@ namespace Tastic
             productList = company.products;
 
             productsContainer.Controls.Add(new LiteralControl(createProductList()));
+
+            walletAmount.InnerHtml = $"&euro;{user.Wallet.Amount.ToString()}";
         }
 
         private string createProductList()

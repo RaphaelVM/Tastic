@@ -13,13 +13,13 @@ namespace Tastic {
     public partial class products {
         
         /// <summary>
-        /// wallet-amount control.
+        /// walletAmount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor wallet-amount;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor walletAmount;
         
         /// <summary>
         /// form1 control.
