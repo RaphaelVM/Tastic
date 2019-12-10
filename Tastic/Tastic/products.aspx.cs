@@ -26,9 +26,12 @@ namespace Tastic
             company = company.getCompanyFromUser(Convert.ToInt32(Properties.Settings.Default.user_id));
             productList = company.products;
 
+            // Create the basic html
             createProductList();
 
             walletAmount.InnerHtml = $"&euro;{user.Wallet.Amount.ToString("F2")}";
+
+            itemsAmount.InnerHtml = ShoppingCart.items.Count.ToString();
         }
 
         private void createProductList()
@@ -78,7 +81,7 @@ namespace Tastic
 
             List<ShoppingCartItem> items = ShoppingCart.Items;
 
-            return pID.ToString();
+            return items.Count.ToString();
         }
         protected void btnLogout_Click(object sender, EventArgs e)
         {

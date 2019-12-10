@@ -77,7 +77,12 @@ function addToCart(pID) {
         contentType: 'application/json; charset=utf-8',
         dataType: 'json',
         success: function (data) {
-            console.log("Successfully added productid " + data.d);
+            document.getElementById("itemsAmount").innerText = data.d;
+            document.getElementById("itemsAmount").style.backgroundColor = "#0e83f3";
+
+            setTimeout(function () {
+                document.getElementById("itemsAmount").style.backgroundColor = "transparent";
+            }, 2000);
         },
         error: function (data, success, error) {
             alert("Error: " + error + " || " + "Data: " + data + " || " + "Success: " + success);

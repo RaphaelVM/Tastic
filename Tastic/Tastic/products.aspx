@@ -10,7 +10,7 @@
         <link rel="stylesheet" type="text/css" href="css/bootstrap-grid.css" />
         <link rel="stylesheet" type="text/css" href="css/bootstrap-reboot.css" />
 
-        <!-- Custom css -->
+        <!-- Custom css --> 
         <link href="styles/global.css" rel="stylesheet" />
 
         <!-- Custom js -->
@@ -47,8 +47,9 @@
                     <ul class="nav navbar-nav navbar-center">
                         <li><img src="images/finalLogoBlack.png" width="120px" alt="tasticLogo" class="text-center" /></li>
                     </ul>
-                    <ul class="nav navbar-nav navbar-right">
+                    <ul class="nav navbar-nav navbar-right d-flex flex-row-reverse bd-highlight">
                         <i class="fas fa-shopping-cart shopping-cart" onclick="location.href = 'cart.aspx'"></i>
+                        <span id="itemsAmount" class="cart-amount rounded-circle" runat="server"></span>
                     </ul>
                 </div>
             </nav>
