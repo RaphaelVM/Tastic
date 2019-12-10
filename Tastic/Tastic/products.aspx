@@ -48,7 +48,7 @@
                         <li><img src="images/finalLogoBlack.png" width="120px" alt="tasticLogo" class="text-center" /></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <i class="fas fa-shopping-cart shopping-cart"></i>
+                        <i class="fas fa-shopping-cart shopping-cart" onclick="location.href = 'cart.aspx'"></i>
                     </ul>
                 </div>
             </nav>

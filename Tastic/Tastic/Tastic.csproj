@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="15.0" DefaultTargets="Build">
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -84,6 +84,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Cart.aspx" />
     <Content Include="Global.asax" />
     <Content Include="images\backgroundLogin.jpg" />
     <Content Include="images\finalLogoBlack.png" />
@@ -98,6 +99,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cart.aspx.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cart.aspx.designer.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+    </Compile>
     <Compile Include="classes\Categorie.cs" />
     <Compile Include="classes\Catering.cs" />
     <Compile Include="classes\Company.cs" />
@@ -107,6 +115,8 @@
     <Compile Include="classes\OrderLines.cs" />
     <Compile Include="classes\Product.cs" />
     <Compile Include="classes\Role.cs" />
+    <Compile Include="classes\ShoppingCart.cs" />
+    <Compile Include="classes\ShoppingCartItem.cs" />
     <Compile Include="classes\Translation.cs" />
     <Compile Include="classes\User.cs" />
     <Compile Include="classes\Wallet.cs" />
@@ -154,6 +164,7 @@
     <Compile Include="sql\CompanySQL.cs" />
     <Compile Include="sql\ProductSQL.cs" />
     <Compile Include="sql\RoleSQL.cs" />
+    <Compile Include="sql\ShoppingCartItemSQL.cs" />
     <Compile Include="sql\TranslationSQL.cs" />
     <Compile Include="sql\UserSQL.cs" />
     <Compile Include="sql\WalletSQL.cs" />
@@ -194,7 +205,8 @@
           <IISUrl>https://localhost:44398/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl />
+          <CustomServerUrl>
+          </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>

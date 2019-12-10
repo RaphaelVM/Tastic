@@ -7,6 +7,9 @@ using System.Web.UI.WebControls;
 using Tastic.classes;
 using Tastic.sql;
 using Tastic.common;
+using System.Windows;
+using System.Windows.Controls;
+using System.Web.Services;
 
 namespace Tastic
 {
@@ -23,18 +26,19 @@ namespace Tastic
             company = company.getCompanyFromUser(Convert.ToInt32(Properties.Settings.Default.user_id));
             productList = company.products;
 
-            productsContainer.Controls.Add(new LiteralControl(createProductList()));
+            createProductList();
 
             walletAmount.InnerHtml = $"&euro;{user.Wallet.Amount.ToString("F2")}";
         }
 
-        private string createProductList()
+        private void createProductList()
         {
-            string html = "";
             int ii = 0;
             foreach (Product product in productList)
             {
-                html += "<div class=\"products-product-container\">" +
+                string id = $"{product.pID}";
+                string html = 
+                        "<div class=\"products-product-container\">" +
                             "<div class=\"product d-flex flex-row bd-highlight align-items-center\">" +
                                 "<div class=\"product-image\">" + // image
                                     $"<img src=\"{product.Productimage}\" alt=\"{product.Productimage}\" />" +
@@ -47,7 +51,7 @@ namespace Tastic
                                 "</div>" +
                                 "" +
                                 "<div class=\"product-addtocart text-center\">" +
-                                    "<div class=\"product-addtocart-icon product-addtocart-icon  align-items-center justify-content-center\">" +
+                                    $"<div class=\"product-addtocart-icon product-addtocart-icon align-items-center justify-content-center\" Onclick=\"addToCart({id})\">" +
                                         "+" +
                                     "</div>" +
                                 "</div>" +
@@ -61,9 +65,33 @@ namespace Tastic
                 {
                     html += "<div class=\"spacer-products\"></div>";
                 }
-            }
 
-            return html;
+                productsContainer.Controls.Add(new LiteralControl(html));
+            }
+        }
+
+        [WebMethod]
+        public static string addToCart(int pID)
+        {
+            ShoppingCartItem shoppingCartItem = new ShoppingCartItem();
+            ShoppingCart.addItem(shoppingCartItem.getShoppingCartItem(pID));
+
+            List<ShoppingCartItem> items = ShoppingCart.Items;
+
+            return pID.ToString();
+        }
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            // Clear properties
+            Properties.Settings.Default.user_fName = "";
+            Properties.Settings.Default.user_id = "";
+            Properties.Settings.Default.user_lName = "";
+            Properties.Settings.Default.user_sex = "";
+
+            Properties.Settings.Default.Save();
+
+            // Redirect to login
+            Response.Redirect("index.aspx");
         }
 
         #region
@@ -94,19 +122,5 @@ namespace Tastic
         }
 
         #endregion
-
-        protected void btnLogout_Click(object sender, EventArgs e)
-        {
-            // Clear properties
-            Properties.Settings.Default.user_fName = "";
-            Properties.Settings.Default.user_id = "";
-            Properties.Settings.Default.user_lName = "";
-            Properties.Settings.Default.user_sex = "";
-
-            Properties.Settings.Default.Save();
-
-            // Redirect to login
-            Response.Redirect("index.aspx");
-        }
     }
 }
