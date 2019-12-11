@@ -26,6 +26,24 @@ namespace Tastic
             company = company.getCompanyFromUser(Convert.ToInt32(Properties.Settings.Default.user_id));
             productList = company.products;
 
+            switch (Request.QueryString.ToString())
+            {
+                case "broodjes":
+                    productList = productList.Where(pL => pL.Categorie.Name == "Broodjes").ToList();
+                    break;
+                case "soepen":
+                    productList = productList.Where(pL => pL.Categorie.Name == "Soepen").ToList();
+                    break;
+                case "snacks":
+                    productList = productList.Where(pL => pL.Categorie.Name == "Snacks").ToList();
+                    break;
+                case "dranken":
+                    productList = productList.Where(pL => pL.Categorie.Name == "Dranken").ToList();
+                    break;
+                default:
+                    break;
+            }
+
             // Create the basic html
             createProductList();
 
@@ -49,7 +67,7 @@ namespace Tastic
                                 "" +
                                 "<div class=\"product-description\">" + // Main body
                                     $"<b>{product.Name}</b> <br />" +
-                                    $"<span>&euro;{product.Price.ToString().Replace(".", ",")}</span> <br />" +
+                                    $"<span>&euro;{product.Price.ToString("F2").Replace(".", ",")}</span> <br />" +
                                     $"<span>{product.Description}</span>" +
                                 "</div>" +
                                 "" +
