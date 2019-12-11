@@ -93,6 +93,9 @@ namespace Tastic.Properties {
             get {
                 return ((string)(this["lang"]));
             }
+            set {
+                this["lang"] = value;
+            }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]

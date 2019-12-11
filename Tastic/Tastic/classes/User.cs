@@ -40,5 +40,10 @@ namespace Tastic.classes
         {
             return userSQL.getUser(uID);
         }
+
+        public bool updateUser(int uID, string email, string password)
+        {
+            return userSQL.updateUser(uID, email, password);
+        }
     }
 }

@@ -106,9 +106,9 @@
         margin-left: 50px;
     }
 
-    .sidenav .closebtn:hover {
-        color: #333333;
-    }
+        .sidenav .closebtn:hover {
+            color: #333333;
+        }
 
 .navbar-nav.navbar-center {
     position: absolute;
@@ -124,8 +124,6 @@
 .shopping-cart {
     font-size: 16pt;
 }
-<<<<<<< HEAD
-=======
 
 .categories {
     margin-left: 20px;

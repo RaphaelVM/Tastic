@@ -106,5 +106,33 @@ namespace Tastic.sql
                 return user;
             }
         }
+
+        public bool updateUser(int uID, string email, string password)
+        {
+            try
+            {
+                database.OpenGeneralConnection();
+
+                using (var cmd = new MySqlCommand())
+                {
+                    cmd.Connection = database.GeneralConnection;
+                    cmd.CommandText = "UPDATE users SET (Email, Password)" +
+                                      "VALUES (@email, @password)" +
+                                      "WHERE uID = @uid";
+                    cmd.Parameters.AddWithValue("@uid", uID);
+                    cmd.Parameters.AddWithValue("@email", email);
+                    cmd.Parameters.AddWithValue("@password", password);
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                return true;
+            }
+            catch (Exception err)
+            {
+                Console.WriteLine(err);
+                return false;
+            }
+        }
     }
 }

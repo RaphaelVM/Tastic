@@ -27,17 +27,20 @@
         <script src="https://kit.fontawesome.com/244b76c52f.js" crossorigin="anonymous"></script>
     </head>
 <body>
-    <div id="mySidenav" class="sidenav text-left sidenav-cust">
+    <form id="form1" runat="server">
+        <!-- Sidenav -->
+        <div id="mySidenav" class="sidenav text-left sidenav-cust">
             <a href="javascript:void(0)" class="closebtn " onclick="closeNav()"><i class="fas fa-times"></i></a>
             <a href="#">"Wallet Waarde"</a>
             <div class="spacer"></div>
-            <a href="#">Producten</a>
+            <asp:LinkButton ID="linkProducts" runat="server" OnClick="linkProducts_Click">Producten</asp:LinkButton>
             <div class="spacer"></div>
-            <a href="#">Instellingen</a>
+            <asp:LinkButton ID="linkSettings" runat="server" OnClick="linkSettings_Click">Instellingen</asp:LinkButton>
             <div class="spacer"></div>
-            <a href="#">Afmelden</a>
-        </div>
+            <asp:LinkButton ID="linkLogout" runat="server" OnClick="linkLogout_Click">Afmelden</asp:LinkButton>
+         </div>
 
+        <!-- Navbar -->
         <nav class="navbar navbar-inverse navbar-cust">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -51,8 +54,8 @@
                 </ul>
             </div>
         </nav>
-
-    <form id="form1" runat="server">
+    
+        <!-- Page body -->
         <div class="container">
             <div class="row">
                 <div class="col-md-12 flexThingy">
@@ -67,11 +70,11 @@
                             <div class="form-group">
                                 <asp:TextBox ID="txtPassword" runat="server" type="password" class="form-control formStyle" placeholder="Wachtwoord van huidige user"></asp:TextBox>
                             </div>
-                            <select class="form-group form-control formStyle">
-                                <option ID="cbDutch" value="NL">Nederlands</option>
-                                <option ID="cbEnglish" value="EN">English</option>
-                            </select>
-                            <asp:Button runat="server" Text="Opslaan" CssClass="btn btn-primary buttonStyle float-none" ID="btnSave" />
+                            <asp:DropDownList ID="ddlLanguage" runat="server" CssClass="form-group form-control formStyle">
+                                <asp:ListItem Value="NL">Nederlands</asp:ListItem>
+                                <asp:ListItem Value="EN">English</asp:ListItem>
+                            </asp:DropDownList>
+                            <asp:Button runat="server" Text="Opslaan" CssClass="btn btn-primary buttonStyle float-none" ID="btnSave" OnClick="btnSave_Click" />
                         </form>
                     </div>
                 </div>
