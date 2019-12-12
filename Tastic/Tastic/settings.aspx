@@ -31,7 +31,7 @@
         <!-- Sidenav -->
         <div id="mySidenav" class="sidenav text-left sidenav-cust">
             <a href="javascript:void(0)" class="closebtn " onclick="closeNav()"><i class="fas fa-times"></i></a>
-            <a href="#">"Wallet Waarde"</a>
+            <a href="#" id="walletAmount" runat="server">"Wallet Waarde"</a>
             <div class="spacer"></div>
             <asp:LinkButton ID="linkProducts" runat="server" OnClick="linkProducts_Click">Producten</asp:LinkButton>
             <div class="spacer"></div>

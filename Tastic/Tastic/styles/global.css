@@ -191,6 +191,18 @@
     background-color: #8FDD3C;
 }
 
+.product-removefromcart-icon {
+    cursor: pointer;
+    display: flex;
+    float: right;
+    color: black;
+    border-radius: 8px;
+    font-size: 14pt;
+    width: 35px;
+    height: 30px;
+    background-color: #ff0000;
+}
+
 .spacer-products {
     width: 90%;
     margin: 0 auto;
@@ -227,4 +239,21 @@
     border-width: 1px;
     border-radius: 4px;
     border-style: Solid;
+}
+
+.shoppingCartAmount {
+    display: flex;
+    float: right;
+    color: black;
+    padding: 4px;
+}
+
+.cart-product-description {
+    width: 70%;
+    float: left;
+}
+
+.cart-product-addtocart {
+    width: 10%;
+    float: left;
 }

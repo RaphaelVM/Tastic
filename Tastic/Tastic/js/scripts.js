@@ -92,3 +92,33 @@ function addToCart(pID) {
         }
     });
 }
+
+function changeAmount(sciID) {
+
+    if (document.getElementById(sciID).value < 1) {
+        // TODO: change this alert to a regular error message
+        alert("Aantal kan niet onder de 1 zijn");
+
+        document.getElementById(sciID).value = 1;
+    } else {
+        var amount = document.getElementById(sciID).value;
+        var data = { sciID, amount };
+
+        $.ajax({
+            type: 'POST',
+            url: 'cart.aspx/updateAmount',
+            data: JSON.stringify(data),
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+            },
+            error: function (data, success, error) {
+                alert("Error: " + error + " || " + "Data: " + data + " || " + "Success: " + success);
+                console.log(data);
+                console.log(success);
+                console.log(error);
+            }
+        });
+    }
+}

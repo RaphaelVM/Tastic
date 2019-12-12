@@ -18,7 +18,7 @@ namespace Tastic.classes
 
         public ShoppingCartItem(int? sciid, Product product, int amount = 1)
         {
-            sciID = sciid;
+            sciID = ShoppingCart.items.Count;
             Product = product;
             Amount = amount;
         }

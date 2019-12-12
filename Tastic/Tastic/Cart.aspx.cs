@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Windows;
 using Tastic.common;
 using Tastic.classes;
+using System.Web.Services;
 
 namespace Tastic
 {
@@ -47,16 +48,14 @@ namespace Tastic
                                     $"<img src=\"{shoppingCartItem.Product.Productimage}\" alt=\"{shoppingCartItem.Product.Productimage}\" />" +
                                 "</div>" +
                                 "" +
-                                "<div class=\"product-description\">" + // Main body
+                                "<div class=\"cart-product-description\">" + // Main body
                                     $"<b>{shoppingCartItem.Product.Name}</b> <br />" +
                                     $"<span>&euro;{shoppingCartItem.Product.Price.ToString("F2").Replace(".", ",")}</span> <br />" +
-                                    $"<span>{shoppingCartItem.Amount}</span>" +
+                                    $"<span>{shoppingCartItem.Product.Description}</span>" +
                                 "</div>" +
                                 "" +
-                                "<div class=\"product-addtocart text-center\">" +
-                                    $"<div class=\"product-addtocart-icon product-addtocart-icon align-items-center justify-content-center\">" +
-                                        "+" +
-                                    "</div>" +
+                                "<div class=\"cart-product-addtocart text-center\">" +
+                                    $"<input type=\"number\" id=\"{shoppingCartItem.sciID}\" onchange=\"changeAmount({shoppingCartItem.sciID})\" class=\"form-control formStyle\" value=\"{shoppingCartItem.Amount}\" /> " +
                                 "</div>" +
                             "</div>" +
                         "</div>";
@@ -70,6 +69,22 @@ namespace Tastic
                 }
 
                 cartContainer.Controls.Add(new LiteralControl(html));
+            }
+        }
+
+        [WebMethod]
+        public static bool updateAmount(int sciID, int amount)
+        {
+            try
+            {
+                ShoppingCartItem shoppingCartItem = ShoppingCart.items.First(sci => sci.sciID == sciID);
+
+                ShoppingCart.items[sciID].Amount = amount;
+                return true;
+            } catch (Exception err)
+            {
+                Console.WriteLine(err);
+                return false;
             }
         }
     }
