@@ -7,20 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Tastic {
-    
-    
-    public partial class settings {
-        
-        /// <summary>
-        /// walletAmount control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor walletAmount;
-        
+namespace Tastic
+{
+
+
+    public partial class settings
+    {
+
         /// <summary>
         /// form1 control.
         /// </summary>
@@ -29,7 +22,7 @@ namespace Tastic {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
+
         /// <summary>
         /// linkProducts control.
         /// </summary>
@@ -65,7 +58,7 @@ namespace Tastic {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
-        
+
         /// <summary>
         /// txtPassword control.
         /// </summary>
@@ -74,7 +67,7 @@ namespace Tastic {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPassword;
-        
+
         /// <summary>
         /// ddlLanguage control.
         /// </summary>

@@ -27,7 +27,6 @@
         <script src="https://kit.fontawesome.com/244b76c52f.js" crossorigin="anonymous"></script>
     </head>
 <body>
-<<<<<<< HEAD
     <form id="form1" runat="server">
         <!-- Sidenav -->
         <div id="mySidenav" class="sidenav text-left sidenav-cust">
@@ -40,18 +39,6 @@
             <div class="spacer"></div>
             <asp:LinkButton ID="linkLogout" runat="server" OnClick="linkLogout_Click">Afmelden</asp:LinkButton>
          </div>
-=======
-    <div id="mySidenav" class="sidenav text-left sidenav-cust">
-        <a href="javascript:void(0)" class="closebtn " onclick="closeNav()"><i class="fas fa-times"></i></a>
-        <a href="#" id="walletAmount" runat="server">"Wallet Waarde"</a>
-        <div class="spacer"></div>
-        <a href="#">Producten</a>
-        <div class="spacer"></div>
-        <a href="#">Instellingen</a>
-        <div class="spacer"></div>
-        <a href="#">Afmelden</a>
-    </div>
->>>>>>> c2c6f0f001091742bcba5f8bfda98a1af925d2fd
 
         <!-- Navbar -->
         <nav class="navbar navbar-inverse navbar-cust">
