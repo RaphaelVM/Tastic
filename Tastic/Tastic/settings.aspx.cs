@@ -31,7 +31,7 @@ namespace Tastic
             string email = txtEmail.Text;
             string password = txtPassword.Text;
             string language = ddlLanguage.SelectedValue;
-
+            password = Common.Hash(password);
             Properties.Settings.Default.lang = language;
 
             user.updateUser(uID, email, password);

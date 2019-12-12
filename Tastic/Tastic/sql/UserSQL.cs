@@ -116,8 +116,7 @@ namespace Tastic.sql
                 using (var cmd = new MySqlCommand())
                 {
                     cmd.Connection = database.GeneralConnection;
-                    cmd.CommandText = "UPDATE users SET (Email, Password)" +
-                                      "VALUES (@email, @password)" +
+                    cmd.CommandText = "UPDATE users SET Email = @email, Password = @password " + 
                                       "WHERE uID = @uid";
                     cmd.Parameters.AddWithValue("@uid", uID);
                     cmd.Parameters.AddWithValue("@email", email);
