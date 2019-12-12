@@ -55,6 +55,9 @@ namespace Tastic
                     Common.setUser(user);
 
                     Response.Redirect("products.aspx", true);
+                } else
+                {
+                    MessageBox.Show(allowedLogin.ToString());
                 }
             }
         }
