@@ -21,7 +21,7 @@ namespace Tastic.sql
         {
             Company company = new Company();
             try
-            {
+            { 
                 database.OpenGeneralConnection();
 
                 using (var cmd = new MySqlCommand())
@@ -31,11 +31,11 @@ namespace Tastic.sql
                                       " (SELECT coID FROM usertocompany WHERE uID = @uid)";
                     cmd.Parameters.AddWithValue("@uid", uID);
 
-                    using (var reader = cmd.ExecuteReader())
+                    using (var comReader = cmd.ExecuteReader())
                     {
-                        while (reader.Read())
+                        while (comReader.Read())
                         {
-                            company = newCompany(reader);
+                            company = newCompany(comReader);
                         }
                     }
                 }

@@ -28,15 +28,15 @@
     </head>
 <body>
     <div id="mySidenav" class="sidenav text-left sidenav-cust">
-            <a href="javascript:void(0)" class="closebtn " onclick="closeNav()"><i class="fas fa-times"></i></a>
-            <a href="#">"Wallet Waarde"</a>
-            <div class="spacer"></div>
-            <a href="#">Producten</a>
-            <div class="spacer"></div>
-            <a href="#">Instellingen</a>
-            <div class="spacer"></div>
-            <a href="#">Afmelden</a>
-        </div>
+        <a href="javascript:void(0)" class="closebtn " onclick="closeNav()"><i class="fas fa-times"></i></a>
+        <a href="#" id="walletAmount" runat="server">"Wallet Waarde"</a>
+        <div class="spacer"></div>
+        <a href="#">Producten</a>
+        <div class="spacer"></div>
+        <a href="#">Instellingen</a>
+        <div class="spacer"></div>
+        <a href="#">Afmelden</a>
+    </div>
 
         <nav class="navbar navbar-inverse navbar-cust">
             <div class="container-fluid">
