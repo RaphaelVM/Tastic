@@ -66,3 +66,29 @@ if (window.location.pathname == "/products.aspx") {
         }
     }, 25);
 }
+
+function addToCart(pID) {
+    var data = { pID };
+
+    $.ajax({
+        type: 'POST',
+        url: 'products.aspx/addToCart',
+        data: JSON.stringify(data),
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        success: function (data) {
+            document.getElementById("itemsAmount").innerText = data.d;
+            document.getElementById("itemsAmount").style.backgroundColor = "#0e83f3";
+
+            setTimeout(function () {
+                document.getElementById("itemsAmount").style.backgroundColor = "transparent";
+            }, 2000);
+        },
+        error: function (data, success, error) {
+            alert("Error: " + error + " || " + "Data: " + data + " || " + "Success: " + success);
+            console.log(data);
+            console.log(success);
+            console.log(error);
+        }
+    });
+}

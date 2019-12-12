@@ -4,22 +4,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Tastic.classes;
+using Tastic.common;
 
 namespace Tastic.sql
 {
-    public class ProductSQL
+    public class ShoppingCartItemSQL
     {
-        private Product newProduct(MySqlDataReader r)
+        private ShoppingCartItem newShoppingCartItem(MySqlDataReader r)
         {
-            return new Product(Convert.ToInt32(r["pID"]), r["Name"].ToString(),
-                Convert.ToInt32(r["Amount"]), r["Productimage"].ToString(),
-                Convert.ToBoolean(r["Active"]), r["Description"].ToString(),
-                Convert.ToDouble(r["Price"]), Convert.ToInt32(r["cID"]));
+            return new ShoppingCartItem(null,
+                                        new Product(Convert.ToInt32(r["pID"]), r["Name"].ToString(),
+                                            Convert.ToInt32(r["Amount"]), r["Productimage"].ToString(),
+                                            Convert.ToBoolean(r["Active"]), r["Description"].ToString(),
+                                            Convert.ToDouble(r["Price"]), Convert.ToInt32(r["cID"])));
         }
 
-        public List<Product> getProducts(int coID)
+        public ShoppingCartItem getShoppingCartItem(int pID)
         {
-            List<Product> products = new List<Product>();
+            ShoppingCartItem shoppingCartItem = new ShoppingCartItem();
             try
             {
                 database.OpenGeneralConnection();
@@ -30,24 +32,24 @@ namespace Tastic.sql
                     cmd.CommandText = "SELECT pro.*, ptc.Price as Price, ptc.Description as Description " +
                                       "FROM products pro " +
                                       "INNER JOIN producttocomp ptc ON pro.pID = ptc.pID " +
-                                      "WHERE ptc.coID = @coid ";
-                    cmd.Parameters.AddWithValue("@coid", coID);
+                                      "WHERE ptc.pID = @pid ";
+                    cmd.Parameters.AddWithValue("@pid", pID);
 
                     using (var reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            products.Add(newProduct(reader));
+                            shoppingCartItem = newShoppingCartItem(reader);
                         }
                     }
                 }
 
-                return products;
+                return shoppingCartItem;
             }
             catch (Exception err)
             {
                 Console.WriteLine(err);
-                return products;
+                return shoppingCartItem;
             }
         }
     }
