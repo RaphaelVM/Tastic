@@ -18,6 +18,8 @@ namespace Tastic
         {
             user = user.getUser(Convert.ToInt32(Properties.Settings.Default.user_id));
 
+            itemsAmount.InnerText = ShoppingCart.items.Count().ToString();
+
             showCartProducts();
         }
 
@@ -42,7 +44,7 @@ namespace Tastic
             foreach (ShoppingCartItem shoppingCartItem in ShoppingCart.items)
             {
                 string html = 
-                        "<div class=\"products-product-container\">" +
+                        $"<div class=\"products-product-container\" id=\"item_{shoppingCartItem.sciID}\">" +
                             "<div class=\"product d-flex flex-row bd-highlight align-items-center\">" +
                                 "<div class=\"product-image\">" + // image
                                     $"<img src=\"{shoppingCartItem.Product.Productimage}\" alt=\"{shoppingCartItem.Product.Productimage}\" />" +
@@ -55,7 +57,10 @@ namespace Tastic
                                 "</div>" +
                                 "" +
                                 "<div class=\"cart-product-addtocart text-center\">" +
-                                    $"<input type=\"number\" id=\"{shoppingCartItem.sciID}\" onchange=\"changeAmount({shoppingCartItem.sciID})\" class=\"form-control formStyle\" value=\"{shoppingCartItem.Amount}\" /> " +
+                                    $"<input type=\"number\" id=\"{shoppingCartItem.sciID}\" onchange=\"changeAmount({shoppingCartItem.sciID})\" class=\"form-control formStyle cart-change-amount\" value=\"{shoppingCartItem.Amount}\" /> " +
+                                    "<div>" +
+                                        $"<i class=\"fas fa-minus remove-product\" onclick=\"removeItem({shoppingCartItem.sciID})\"></i>" +
+                                    "</div>" +
                                 "</div>" +
                             "</div>" +
                         "</div>";
@@ -85,6 +90,22 @@ namespace Tastic
             {
                 Console.WriteLine(err);
                 return false;
+            }
+        }
+
+        [WebMethod]
+        public static int removeItem(int sciID)
+        {
+            try
+            {
+                ShoppingCart.items.Remove(ShoppingCart.items[sciID]);
+
+                return ShoppingCart.items.Count;
+            }
+            catch (Exception err)
+            {
+                Console.WriteLine(err);
+                return ShoppingCart.items.Count;
             }
         }
     }

@@ -122,3 +122,26 @@ function changeAmount(sciID) {
         });
     }
 }
+
+function removeItem(sciID) {
+    var data = { sciID };
+
+    $.ajax({
+        type: 'POST',
+        url: 'cart.aspx/removeItem',
+        data: JSON.stringify(data),
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        success: function (data) {
+            document.getElementById("itemsAmount").innerHTML = data.d;
+
+            document.getElementById("item_" + data.d).remove();
+        },
+        error: function (data, success, error) {
+            alert("Error: " + error + " || " + "Data: " + data + " || " + "Success: " + success);
+            console.log(data);
+            console.log(success);
+            console.log(error);
+        }
+    });
+}

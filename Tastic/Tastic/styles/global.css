@@ -249,11 +249,23 @@
 }
 
 .cart-product-description {
-    width: 70%;
+    width: 60%;
     float: left;
 }
 
 .cart-product-addtocart {
-    width: 10%;
+    width: 20%;
+    float: left;
+}
+
+.remove-product {
+    font-size: 20pt;
+    padding: 6px;
+    cursor: pointer;
+}
+
+.cart-change-amount {
+    width: 50%;
+    padding: 6px;
     float: left;
 }
