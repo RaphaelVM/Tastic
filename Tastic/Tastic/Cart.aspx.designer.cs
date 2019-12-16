@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Tastic {
-    
-    
-    public partial class Cart {
-        
+namespace Tastic
+{
+
+
+    public partial class Cart
+    {
+
         /// <summary>
         /// form2 control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace Tastic {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form2;
-        
+
         /// <summary>
         /// walletAmount control.
         /// </summary>
@@ -28,17 +30,35 @@ namespace Tastic {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor walletAmount;
-        
+        protected global::System.Web.UI.WebControls.LinkButton walletAmount;
+
         /// <summary>
-        /// btnLogout control.
+        /// linkProducts control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLogout;
-        
+        protected global::System.Web.UI.WebControls.LinkButton linkProducts;
+
+        /// <summary>
+        /// linkSettings control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkSettings;
+
+        /// <summary>
+        /// linkLogout control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkLogout;
+
         /// <summary>
         /// itemsAmount control.
         /// </summary>
@@ -47,7 +67,7 @@ namespace Tastic {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl itemsAmount;
-        
+
         /// <summary>
         /// cartContainer control.
         /// </summary>
@@ -56,7 +76,7 @@ namespace Tastic {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel cartContainer;
-        
+
         /// <summary>
         /// btnBestel control.
         /// </summary>
@@ -65,7 +85,7 @@ namespace Tastic {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnBestel;
-        
+
         /// <summary>
         /// btnAnnuleren control.
         /// </summary>

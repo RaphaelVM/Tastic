@@ -72,7 +72,7 @@ namespace Tastic
                                 "</div>" +
                                 "" +
                                 "<div class=\"product-addtocart text-center\">" +
-                                    $"<div class=\"product-addtocart-icon product-addtocart-icon align-items-center justify-content-center\" Onclick=\"addToCart({id})\">" +
+                                    $"<div class=\"btn buttonStyle align-items-center justify-content-center\" Onclick=\"addToCart({id})\">" +
                                         "+" +
                                     "</div>" +
                                 "</div>" +

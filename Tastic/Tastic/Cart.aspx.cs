@@ -18,6 +18,7 @@ namespace Tastic
         {
             user = user.getUser(Convert.ToInt32(Properties.Settings.Default.user_id));
 
+            walletAmount.Text = $"&euro;{user.Wallet.Amount.ToString("F2")}";
             itemsAmount.InnerText = ShoppingCart.items.Count().ToString();
 
             showCartProducts();
@@ -73,7 +74,7 @@ namespace Tastic
                                 "<div class=\"cart-product-addtocart text-center\">" +
                                     $"<input type=\"number\" id=\"{shoppingCartItem.sciID}\" onchange=\"changeAmount({shoppingCartItem.sciID})\" class=\"form-control formStyle cart-change-amount\" value=\"{shoppingCartItem.Amount}\" /> " +
                                     "<div>" +
-                                        $"<i class=\"fas fa-minus remove-product\" onclick=\"removeItem({shoppingCartItem.sciID})\"></i>" +
+                                        $"<i class=\"fas fa-trash remove-product\" onclick=\"removeItem({shoppingCartItem.sciID})\"></i>" +
                                     "</div>" +
                                 "</div>" +
                             "</div>" +
@@ -149,6 +150,30 @@ namespace Tastic
                         "</div>";
 
             cartContainer.Controls.Add(new LiteralControl(html));
+        }
+
+        protected void linkProducts_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("products.aspx", true);
+        }
+
+        protected void linkSettings_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("settings.aspx", true);
+        }
+
+        protected void linkLogout_Click(object sender, EventArgs e)
+        {
+            // Clear properties
+            Properties.Settings.Default.user_fName = "";
+            Properties.Settings.Default.user_id = "";
+            Properties.Settings.Default.user_lName = "";
+            Properties.Settings.Default.user_sex = "";
+
+            Properties.Settings.Default.Save();
+
+            // Redirect to login
+            Response.Redirect("index.aspx");
         }
     }
 }
