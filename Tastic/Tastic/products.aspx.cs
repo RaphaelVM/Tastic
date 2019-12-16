@@ -47,7 +47,7 @@ namespace Tastic
             // Create the basic html
             createProductList();
 
-            walletAmount.InnerHtml = $"&euro;{user.Wallet.Amount.ToString("F2")}";
+            walletAmount.Text = $"&euro;{user.Wallet.Amount.ToString("F2")}";
 
             itemsAmount.InnerHtml = ShoppingCart.items.Count.ToString();
         }
@@ -101,7 +101,8 @@ namespace Tastic
 
             return items.Count.ToString();
         }
-        protected void btnLogout_Click(object sender, EventArgs e)
+
+        protected void linkLogout_Click(object sender, EventArgs e)
         {
             // Clear properties
             Properties.Settings.Default.user_fName = "";
@@ -115,33 +116,14 @@ namespace Tastic
             Response.Redirect("index.aspx");
         }
 
-        #region
-        /* Category buttons */
-        protected void btnAlles_Click(object sender, EventArgs e)
+        protected void linkProducts_Click(object sender, EventArgs e)
         {
-            Response.Redirect("products.aspx?all");
+            Response.Redirect("products.aspx", true);
         }
 
-        protected void btnbroodjes_Click(object sender, EventArgs e)
+        protected void linkSettings_Click(object sender, EventArgs e)
         {
-            Response.Redirect("products.aspx?broodjes");
+            Response.Redirect("settings.aspx", true);
         }
-
-        protected void btnSoepen_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("products.aspx?soepen");
-        }
-
-        protected void btnSnacks_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("products.aspx?snacks");
-        }
-
-        protected void btnDranken_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("products.aspx?dranken");
-        }
-
-        #endregion
     }
 }

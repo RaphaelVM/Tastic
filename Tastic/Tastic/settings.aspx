@@ -31,7 +31,7 @@
         <!-- Sidenav -->
         <div id="mySidenav" class="sidenav text-left sidenav-cust">
             <a href="javascript:void(0)" class="closebtn " onclick="closeNav()"><i class="fas fa-times"></i></a>
-            <a href="#">"Wallet Waarde"</a>
+            <asp:LinkButton ID="walletAmount" runat="server"></asp:LinkButton>
             <div class="spacer"></div>
             <asp:LinkButton ID="linkProducts" runat="server" OnClick="linkProducts_Click">Producten</asp:LinkButton>
             <div class="spacer"></div>
@@ -68,7 +68,7 @@
                                 <asp:TextBox ID="txtEmail" runat="server" class="form-control formStyle" placeholder="Email van huidige user"></asp:TextBox>
                             </div>
                             <div class="form-group">
-                                <asp:TextBox ID="txtPassword" runat="server" type="password" class="form-control formStyle" placeholder="Wachtwoord van huidige user"></asp:TextBox>
+                                <asp:TextBox ID="txtPassword" runat="server" type="password" class="form-control formStyle" placeholder="Wachtwoord van huidige user" TextMode="Password"></asp:TextBox>
                             </div>
                             <asp:DropDownList ID="ddlLanguage" runat="server" CssClass="form-group form-control formStyle">
                                 <asp:ListItem Value="NL">Nederlands</asp:ListItem>
