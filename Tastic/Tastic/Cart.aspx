@@ -61,6 +61,14 @@
                             
                         </asp:Panel>
                     </div>
+
+                    <div class="col-md-6 col-6 col-sm-6 col-lg-6 col-xl-6 float-left">
+                        <asp:Button ID="btnBestel" runat="server" Text="Bestel" CssClass="btn btn-primary buttonStyle float-left cart-button" OnClick="btnBestel_Click" />
+                    </div>
+
+                    <div class="col-md-6 col-6 col-sm-6 col-lg-6 col-xl-6 float-right">
+                        <asp:Button ID="btnAnnuleren" runat="server" Text="Annuleren" CssClass="btn btn-primary buttonStyle float-right cart-button" OnClick="btnAnnuleren_Click" />
+                    </div>
                 </div>
             </div>
         </form>

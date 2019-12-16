@@ -34,6 +34,9 @@
                             <div class="logoLogin">
                                 <img src="images/finalLogoTastic.png" />
                             </div>
+
+                            <asp:Image ID="testImg" runat="server" />
+
                             <form>
                                 <div class="form-group">
                                     <asp:TextBox ID="txtEmail" runat="server" class="form-control formStyle" placeholder="E-mail"></asp:TextBox>

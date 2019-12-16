@@ -269,3 +269,12 @@
     padding: 6px;
     float: left;
 }
+
+.noProducts {
+    width: 100%;
+    text-align: center;
+}
+
+.cart-button {
+    margin-top: 10%;
+}

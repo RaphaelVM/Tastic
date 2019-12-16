@@ -136,6 +136,17 @@ function removeItem(sciID) {
             document.getElementById("itemsAmount").innerHTML = data.d;
 
             document.getElementById("item_" + data.d).remove();
+
+            if (document.getElementById("cartContainer").children.length == 0) {
+                document.getElementById("cartContainer").innerHTML =
+                    "<div class=\"products-product-container\" id=\"noproducts\">" +
+                        "<div class=\"product d-flex flex-row bd-highlight align-items-center\">" +
+                            "<span class=\"noProducts\">" +
+                                "Er zitten geen producten in de winkelwagen" +
+                            "</span>" +
+                        "</div>" +
+                    "</div>";
+            }
         },
         error: function (data, success, error) {
             alert("Error: " + error + " || " + "Data: " + data + " || " + "Success: " + success);

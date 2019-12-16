@@ -41,6 +41,20 @@ namespace Tastic
         {
             int ii = 0;
 
+            // No items in the shopping cart
+            if (ShoppingCart.items.Count == 0)
+            {
+                string html = 
+                        "<div class=\"products-product-container\" id=\"noproducts\">" +
+                            "<div class=\"product d-flex flex-row bd-highlight align-items-center\">" +
+                                 "<span class=\"noProducts\">" +
+                                    "Er zitten geen producten in de winkelwagen" +
+                                "</span>" +
+                        "</div>";
+
+                cartContainer.Controls.Add(new LiteralControl(html));
+            }
+
             foreach (ShoppingCartItem shoppingCartItem in ShoppingCart.items)
             {
                 string html = 
@@ -85,6 +99,7 @@ namespace Tastic
                 ShoppingCartItem shoppingCartItem = ShoppingCart.items.First(sci => sci.sciID == sciID);
 
                 ShoppingCart.items[sciID].Amount = amount;
+
                 return true;
             } catch (Exception err)
             {
@@ -107,6 +122,33 @@ namespace Tastic
                 Console.WriteLine(err);
                 return ShoppingCart.items.Count;
             }
+        }
+
+        protected void btnBestel_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("test");
+        }
+
+        protected void btnAnnuleren_Click(object sender, EventArgs e)
+        {
+            // Clear the shoppingcart
+            ShoppingCart.items = new List<ShoppingCartItem>();
+
+            itemsAmount.InnerText = ShoppingCart.items.Count.ToString();
+
+            // Clear the html
+            cartContainer.Controls.Clear();
+
+            // Create and insert the string in the panel
+            string html =
+                        "<div class=\"products-product-container\" id=\"noproducts\">" +
+                            "<div class=\"product d-flex flex-row bd-highlight align-items-center\">" +
+                                 "<span class=\"noProducts\">" +
+                                    "Er zitten geen producten in de winkelwagen" +
+                                "</span>" +
+                        "</div>";
+
+            cartContainer.Controls.Add(new LiteralControl(html));
         }
     }
 }
