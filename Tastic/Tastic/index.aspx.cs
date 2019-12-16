@@ -27,7 +27,7 @@ namespace Tastic
 
             SetTranslations.setIndexTranslations(this);
 
-            byte[] bytes = Common.GetImgByte("quagWave.png");
+            //byte[] bytes = Common.GetImgByte("quagWave.png");
 
             //testImg. = Common.ByteToImage(bytes);
         }

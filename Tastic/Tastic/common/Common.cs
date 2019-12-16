@@ -114,17 +114,17 @@ namespace Tastic.common
             Properties.Settings.Default.Save();
         }
 
-        public byte[] GetImgByte(string imagefile)
-        {
-            WebClient ftpClient = new WebClient();
-            ftpClient.Credentials = new NetworkCredential(
-                    Properties.Settings.Default.ftp_user, 
-                    Properties.Settings.Default.ftp_pass
-                );
+        //public byte[] GetImgByte(string imagefile)
+        //{
+        //    WebClient ftpClient = new WebClient();
+        //    ftpClient.Credentials = new NetworkCredential(
+        //            Properties.Settings.Default.ftp_user, 
+        //            Properties.Settings.Default.ftp_pass
+        //        );
 
-            byte[] imageByte = ftpClient.DownloadData($"ftp://{imagefile}");
-            return imageByte;
-        }
+        //    byte[] imageByte = ftpClient.DownloadData($"ftp://{imagefile}");
+        //    return imageByte;
+        //}
 
         public static Bitmap ByteToImage(byte[] blob)
         {
