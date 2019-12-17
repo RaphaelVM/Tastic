@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -19,6 +20,10 @@ namespace Tastic
 
         public void ProcessRequest(HttpContext context)
         {
+            // Unsure about the speed of this code.
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
             int bytesRead = 0;
             byte[] buffer = new byte[2048];
 
@@ -36,12 +41,6 @@ namespace Tastic
             
             // Create the folder if it doesn't exist
             System.IO.Directory.CreateDirectory(folder);
-
-            // Give it ALL the permissions, just in case
-            DirectoryInfo dInfo = new DirectoryInfo(folder);
-            DirectorySecurity dSecurity = dInfo.GetAccessControl();
-            dSecurity.AddAccessRule(new FileSystemAccessRule(new SecurityIdentifier(WellKnownSidType.WorldSid, null), FileSystemRights.FullControl, InheritanceFlags.ObjectInherit | InheritanceFlags.ContainerInherit, PropagationFlags.NoPropagateInherit, AccessControlType.Allow));
-            dInfo.SetAccessControl(dSecurity);
 
             // Create a stream to save it in the temp/Tastic folder
             Stream reader = request.GetResponse().GetResponseStream();
@@ -63,6 +62,10 @@ namespace Tastic
 
             // Binary write the bytes
             context.Response.BinaryWrite(fileData);
+
+            stopwatch.Stop();
+
+            System.Diagnostics.Debug.WriteLine(stopwatch.ElapsedMilliseconds);
         }
 
         public bool IsReusable

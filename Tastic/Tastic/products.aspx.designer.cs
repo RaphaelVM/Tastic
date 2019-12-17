@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Tastic
-{
-
-
-    public partial class products
-    {
-
+namespace Tastic {
+    
+    
+    public partial class products {
+        
         /// <summary>
         /// form1 control.
         /// </summary>
@@ -22,7 +20,7 @@ namespace Tastic
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-
+        
         /// <summary>
         /// walletAmount control.
         /// </summary>
@@ -31,7 +29,7 @@ namespace Tastic
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton walletAmount;
-
+        
         /// <summary>
         /// linkProducts control.
         /// </summary>
@@ -40,7 +38,7 @@ namespace Tastic
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton linkProducts;
-
+        
         /// <summary>
         /// linkSettings control.
         /// </summary>
@@ -49,7 +47,16 @@ namespace Tastic
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton linkSettings;
-
+        
+        /// <summary>
+        /// extraOptions control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder extraOptions;
+        
         /// <summary>
         /// linkLogout control.
         /// </summary>
@@ -58,7 +65,7 @@ namespace Tastic
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton linkLogout;
-
+        
         /// <summary>
         /// itemsAmount control.
         /// </summary>
@@ -67,7 +74,7 @@ namespace Tastic
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl itemsAmount;
-
+        
         /// <summary>
         /// btnAlles control.
         /// </summary>
@@ -76,7 +83,7 @@ namespace Tastic
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAlles;
-
+        
         /// <summary>
         /// btnBroodjes control.
         /// </summary>
@@ -85,7 +92,7 @@ namespace Tastic
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnBroodjes;
-
+        
         /// <summary>
         /// btnSoepen control.
         /// </summary>
@@ -94,7 +101,7 @@ namespace Tastic
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSoepen;
-
+        
         /// <summary>
         /// btnSnacks control.
         /// </summary>
@@ -103,7 +110,7 @@ namespace Tastic
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSnacks;
-
+        
         /// <summary>
         /// btnDranken control.
         /// </summary>
@@ -112,7 +119,7 @@ namespace Tastic
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnDranken;
-
+        
         /// <summary>
         /// productsContainer control.
         /// </summary>

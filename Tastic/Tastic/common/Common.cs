@@ -113,5 +113,42 @@ namespace Tastic.common
 
             Properties.Settings.Default.Save();
         }
+
+        public static string checkRoles(Role role)
+        {
+            string html = "";
+            switch (role.rID)
+            {
+                case 1: // User
+                    html = "";
+                    break;
+                case 2: // Admin
+                    html =
+                        "<div class=\"spacer\"></div>" +
+                        "<a href=\"companies.aspx\">Bedrijven</a>" +
+                        "<div class=\"spacer\"></div>" +
+                        "<a href=\"caterings.aspx\">Cateringen</a>" +
+                        "<div class=\"spacer\"></div>" +
+                        "<a href=\"productadmin.aspx\">Product Admin</a>" +
+                        "<div class=\"spacer\"></div>" +
+                        "<a href=\"users.aspx\">Gebruikers</a>";
+                    break;
+                case 3: // Bedrijfsadmin
+                    html =
+                       "<div class=\"spacer\"></div>" +
+                       "<a href=\"users.aspx\">Gebruikers</a>";
+                    break;
+                case 4: // Cateraar
+                    html =
+                       "<div class=\"spacer\"></div>" +
+                       "<a href=\"productadmin.aspx\">Product Admin</a>";
+                    break;
+                default:
+                    html = "";
+                    break;
+            }
+
+            return html;
+        }
     }
 }

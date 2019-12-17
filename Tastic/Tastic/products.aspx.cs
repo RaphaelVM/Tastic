@@ -50,6 +50,8 @@ namespace Tastic
             walletAmount.Text = $"&euro;{user.Wallet.Amount.ToString("F2")}";
 
             itemsAmount.InnerHtml = ShoppingCart.items.Count.ToString();
+
+            extraOptions.Controls.Add(new LiteralControl(Common.checkRoles(user.Role)));
         }
 
         private void createProductList()
