@@ -62,7 +62,7 @@ namespace Tastic
                         "<div class=\"products-product-container\">" +
                             "<div class=\"product d-flex flex-row bd-highlight align-items-center\">" +
                                 "<div class=\"product-image\">" + // image
-                                    $"<img src=\"{product.Productimage}\" alt=\"{product.Productimage}\" />" +
+                                    $"<img src=\"loadImage.ashx?image={product.Productimage}\" alt=\"{product.Productimage}\" />" +
                                 "</div>" +
                                 "" +
                                 "<div class=\"product-description\">" + // Main body
@@ -116,18 +116,8 @@ namespace Tastic
             Response.Redirect("index.aspx");
         }
 
-        protected void linkProducts_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("products.aspx", true);
-        }
-
-        protected void linkSettings_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("settings.aspx", true);
-        }
-
         #region
-        /* Category buttons */
+        /* Redirect buttons */
         protected void btnAlles_Click(object sender, EventArgs e)
         {
             Response.Redirect("products.aspx?all");
@@ -152,6 +142,17 @@ namespace Tastic
         {
             Response.Redirect("products.aspx?dranken");
         }
+
+        protected void linkProducts_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("products.aspx", true);
+        }
+
+        protected void linkSettings_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("settings.aspx", true);
+        }
+
         #endregion
     }
 }

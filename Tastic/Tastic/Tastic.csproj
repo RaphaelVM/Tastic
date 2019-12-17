@@ -132,6 +132,9 @@
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="loadImage.ashx.cs">
+      <DependentUpon>loadImage.ashx</DependentUpon>
+    </Compile>
     <Compile Include="products.aspx.cs">
       <DependentUpon>products.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -170,6 +173,7 @@
     <Compile Include="sql\WalletSQL.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="loadImage.ashx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>
@@ -186,6 +190,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="css\" />
     <Folder Include="Models\" />
+    <Folder Include="temp\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
