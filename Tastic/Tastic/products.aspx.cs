@@ -64,7 +64,7 @@ namespace Tastic
                         "<div class=\"products-product-container\">" +
                             "<div class=\"product d-flex flex-row bd-highlight align-items-center\">" +
                                 "<div class=\"product-image\">" + // image
-                                    $"<img src=\"loadImage.ashx?image={product.Productimage}\" alt=\"{product.Productimage}\" />" +
+                                    $"<img src=\"loadImage.ashx?image={product.Productimage}\" alt=\"{product.Productimage}\" style=\"max-width: 100px; min-width: 100px;\" />" +
                                 "</div>" +
                                 "" +
                                 "<div class=\"product-description\">" + // Main body

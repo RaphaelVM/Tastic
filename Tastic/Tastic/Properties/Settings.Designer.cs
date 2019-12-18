@@ -88,13 +88,14 @@ namespace Tastic.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("EN")]
+        [global::System.Configuration.DefaultSettingValueAttribute("NL")]
         public string lang {
             get {
                 return ((string)(this["lang"]));
             }
-            set {
-                this["lang"] = value;
+            set
+            {
+                (this["lang"]) = value;
             }
         }
         
@@ -105,8 +106,9 @@ namespace Tastic.Properties {
             get {
                 return ((string)(this["user_id"]));
             }
-            set {
-                this["user_id"] = value;
+            set
+            {
+                (this["user_id"]) = value;
             }
         }
         
@@ -117,8 +119,9 @@ namespace Tastic.Properties {
             get {
                 return ((string)(this["user_fName"]));
             }
-            set {
-                this["user_fName"] = value;
+            set
+            {
+                (this["user_fName"]) = value;
             }
         }
         
@@ -129,8 +132,9 @@ namespace Tastic.Properties {
             get {
                 return ((string)(this["user_lName"]));
             }
-            set {
-                this["user_lName"] = value;
+            set
+            {
+                (this["user_lName"]) = value;
             }
         }
         
@@ -141,8 +145,9 @@ namespace Tastic.Properties {
             get {
                 return ((string)(this["user_sex"]));
             }
-            set {
-                this["user_sex"] = value;
+            set
+            {
+                (this["user_sex"]) = value;
             }
         }
     }
