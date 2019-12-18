@@ -35,7 +35,7 @@
                                 <img src="images/finalLogoTastic.png" />
                             </div>
 
-                            <asp:Image ID="testImg" runat="server" />
+                            <img alt="" src="" runat="server" id="testImage"/>
 
                             <form>
                                 <div class="form-group">

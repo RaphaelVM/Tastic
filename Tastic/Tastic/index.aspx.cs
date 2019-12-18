@@ -26,10 +26,6 @@ namespace Tastic
             Translations = TranslationSQL.getAllTranslations();
 
             SetTranslations.setIndexTranslations(this);
-
-            //byte[] bytes = Common.GetImgByte("quagWave.png");
-
-            //testImg. = Common.ByteToImage(bytes);
         }
 
         protected void btnRegistreren_Click(object sender, EventArgs e)
