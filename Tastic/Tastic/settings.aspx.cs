@@ -31,11 +31,10 @@ namespace Tastic
             // Save the edited values in the textbox
             int uID = Convert.ToInt32(Properties.Settings.Default.user_id);
             string email = txtEmail.Text;
-            string password = txtPassword.Text;
+            string password = Common.Hash(txtPassword.Text, 10000);
             string language = ddlLanguage.SelectedValue;
-            password = Common.Hash(password, 10000);
-            Properties.Settings.Default.lang = language;
 
+            Properties.Settings.Default.lang = language;
             Properties.Settings.Default.Save();
 
             user.updateUser(uID, email, password);
