@@ -61,7 +61,7 @@ namespace Tastic
                         $"<div class=\"products-product-container\" id=\"item_{shoppingCartItem.sciID}\">" +
                             "<div class=\"product d-flex flex-row bd-highlight align-items-center\">" +
                                 "<div class=\"product-image\">" + // image
-                                    $"<img src=\"{shoppingCartItem.Product.Productimage}\" alt=\"{shoppingCartItem.Product.Productimage}\" />" +
+                                    $"<img src=\"loadImage.ashx?image={shoppingCartItem.Product.Productimage}\" alt=\"{shoppingCartItem.Product.Productimage}\" />" +
                                 "</div>" +
                                 "" +
                                 "<div class=\"cart-product-description\">" + // Main body

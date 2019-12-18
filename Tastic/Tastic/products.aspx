@@ -36,6 +36,7 @@
                 <asp:LinkButton ID="linkProducts" runat="server" OnClick="linkProducts_Click">Producten</asp:LinkButton>
                 <div class="spacer"></div>
                 <asp:LinkButton ID="linkSettings" runat="server" OnClick="linkSettings_Click">Instellingen</asp:LinkButton>
+                <asp:PlaceHolder ID="extraOptions" runat="server"></asp:PlaceHolder>
                 <div class="spacer"></div>
                 <asp:LinkButton ID="linkLogout" runat="server" OnClick="linkLogout_Click">Afmelden</asp:LinkButton>
             </div>

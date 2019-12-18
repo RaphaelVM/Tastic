@@ -114,26 +114,41 @@ namespace Tastic.common
             Properties.Settings.Default.Save();
         }
 
-        //public byte[] GetImgByte(string imagefile)
-        //{
-        //    WebClient ftpClient = new WebClient();
-        //    ftpClient.Credentials = new NetworkCredential(
-        //            Properties.Settings.Default.ftp_user, 
-        //            Properties.Settings.Default.ftp_pass
-        //        );
-
-        //    byte[] imageByte = ftpClient.DownloadData($"ftp://{imagefile}");
-        //    return imageByte;
-        //}
-
-        public static Bitmap ByteToImage(byte[] blob)
+        public static string checkRoles(Role role)
         {
-            MemoryStream mStream = new MemoryStream();
-            byte[] pData = blob;
-            mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
-            Bitmap bm = new Bitmap(mStream, false);
-            mStream.Dispose();
-            return bm;
+            string html = "";
+            switch (role.rID)
+            {
+                case 1: // User
+                    html = "";
+                    break;
+                case 2: // Admin
+                    html =
+                        "<div class=\"spacer\"></div>" +
+                        "<a href=\"companies.aspx\">Bedrijven</a>" +
+                        "<div class=\"spacer\"></div>" +
+                        "<a href=\"caterings.aspx\">Cateringen</a>" +
+                        "<div class=\"spacer\"></div>" +
+                        "<a href=\"productadmin.aspx\">Product Admin</a>" +
+                        "<div class=\"spacer\"></div>" +
+                        "<a href=\"users.aspx\">Gebruikers</a>";
+                    break;
+                case 3: // Bedrijfsadmin
+                    html =
+                       "<div class=\"spacer\"></div>" +
+                       "<a href=\"users.aspx\">Gebruikers</a>";
+                    break;
+                case 4: // Cateraar
+                    html =
+                       "<div class=\"spacer\"></div>" +
+                       "<a href=\"productadmin.aspx\">Product Admin</a>";
+                    break;
+                default:
+                    html = "";
+                    break;
+            }
+
+            return html;
         }
     }
 }
