@@ -64,7 +64,7 @@ namespace Tastic
                         "<div class=\"products-product-container\">" +
                             "<div class=\"product d-flex flex-row bd-highlight align-items-center\">" +
                                 "<div class=\"product-image\">" + // image
-                                    $"<img src=\"loadImage.ashx?image={product.Productimage}\" alt=\"{product.Productimage}\" style=\"max-width: 100px; min-width: 100px;\" />" +
+                                    $"<img src=\"loadImage.ashx?image={product.Productimage}\" alt=\"{product.Productimage}\" class=\"product-image-image\" />" +
                                 "</div>" +
                                 "" +
                                 "<div class=\"product-description\">" + // Main body
@@ -75,7 +75,7 @@ namespace Tastic
                                 "" +
                                 "<div class=\"product-addtocart text-center\">" +
                                     $"<div class=\"btn buttonStyle align-items-center justify-content-center\" Onclick=\"addToCart({id})\">" +
-                                        "+" +
+                                        "<i class=\"fas fa-plus\"></i>" +
                                     "</div>" +
                                 "</div>" +
                             "</div>" +

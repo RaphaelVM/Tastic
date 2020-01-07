@@ -51,19 +51,19 @@
     transition: 0.3s all ease;
 }
 
-    .buttonStyle:hover {
-        color: #333333;
-        background-color: #F9FFF4;
-        border-color: #8FDD3C;
-        transition: 0.3s all ease;
-    }
+.buttonStyle:hover {
+    color: #333333;
+    background-color: #F9FFF4;
+    border-color: #8FDD3C;
+    transition: 0.3s all ease;
+}
 
-    .buttonStyle:active {
-        color: #333333;
-        background-color: #F9FFF4;
-        border-color: #8FDD3C;
-        transition: 0.3s all ease;
-    }
+.buttonStyle:active {
+    color: #333333;
+    background-color: #F9FFF4;
+    border-color: #8FDD3C;
+    transition: 0.3s all ease;
+}
 
 .invisible-cust {
     display: none;
@@ -94,29 +94,29 @@
 }
 
 
-    .sidenav a {
-        padding: 8px 8px 8px 32px;
-        text-decoration: none;
-        font-size: 25px;
-        color: #333333;
-        display: block;
-        transition: 0.3s;
-    }
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #333333;
+    display: block;
+    transition: 0.3s;
+}
 
-        .sidenav a:hover {
-            color: #F9FFF4;
-        }
+.sidenav a:hover {
+    color: #F9FFF4;
+}
 
-    .sidenav .closebtn {
-        position: absolute;
-        top: 0;
-        right: 25px;
-        margin-left: 50px;
-    }
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    margin-left: 50px;
+}
 
-        .sidenav .closebtn:hover {
-            color: #333333;
-        }
+.sidenav .closebtn:hover {
+    color: #333333;
+}
 
 .navbar-nav.navbar-center {
     position: absolute;
@@ -268,4 +268,64 @@
 
 .cart-button {
     margin-top: 10%;
+}
+
+.backgroundPayment {
+    background-color: white;
+    margin-right: 20%;
+    margin-left: 20%;
+}
+
+.product-image-image {
+    max-width: 100px;
+    min-width: 100px;
+}
+
+.payment-product-description {
+    width: 50%;
+    text-align: left;
+}
+
+.payment-product-amount {
+    width: 50%;
+    text-align: right;
+}
+
+.totalAmount {
+    width: 100%;
+    float: right;
+    margin: 0 auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: right;
+}
+
+.paymentMethodDropdown {
+    /*background-color: #8FDD3C;*/
+}
+
+.paymentTotal {
+    text-align: right;
+}
+
+.payment-total-divider {
+    width: 90%;
+    margin: 0 auto;
+    height: 1px;
+    background-color: black;
+}
+
+.payment-table {
+    float: right;
+}
+
+.paymentMethod-container {
+    width: 100%;
+    float: left;
+}
+
+.paymentMethod-options {
+    width: 100%;
+    text-align: center;
+    margin: 2px;
 }

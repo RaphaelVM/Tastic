@@ -156,3 +156,67 @@ function removeItem(sciID) {
         }
     });
 }
+
+function retractWallet(walletAmount) {
+    setTimeout(function () { 
+
+        if (document.getElementById("useWallet").checked) {
+            var totalAmount = /([€ ]+)(.+)/.exec(document.getElementById("subtotalAmount").innerHTML)[2].replace(",", ".");
+            var payFullWithWallet = false;
+
+            if (walletAmount < totalAmount) {
+                var newAmount = totalAmount - walletAmount;
+            } else if (walletAmount == totalAmount) {
+                var newAmount = 0.00;
+                payFullWithWallet = true;
+            } else if (walletAmount > totalAmount) {
+                var newAmount = 0.00;
+                payFullWithWallet = true;
+            }
+
+            if (payFullWithWallet) {
+                document.getElementById("paymentMethod").style.display = "none";
+            } else {
+                document.getElementById("paymentMethod").style.display = "block";
+            }
+
+            document.getElementById("totalAmount").innerHTML = "Totaal: &euro; " + newAmount.toFixed(2).toString().replace(".", ",");
+        } else {
+            if (document.getElementById("paymentMethod").style.display == "none") {
+                document.getElementById("paymentMethod").style.display = "block";
+            }
+
+            document.getElementById("totalAmount").innerHTML = document.getElementById("subtotalAmount").innerHTML.replace("Subtotaal: ", "Totaal: ");
+        }
+    }, 20);
+}
+
+function payOrder() {
+    var useWallet = document.getElementById("useWallet").checked;
+    var data = { useWallet };
+    $.ajax({
+        type: 'POST',
+        url: 'payment.aspx/createOrder',
+        data: JSON.stringify(data),
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        success: function (data) {
+
+        },
+        error: function (data, success, error) {
+            alert("Error: " + error + " || " + "Data: " + data + " || " + "Success: " + success);
+            console.log(data);
+            console.log(success);
+            console.log(error);
+        }
+    });
+}
+
+function removeFirstItem() {
+    // When you choose a different option that "Kies een methode" remove that option
+    if (document.getElementById("paymentMethod").options[0].value == "Kies een methode") {
+        if (document.getElementById("paymentMethod").value != "Kies een methode") {
+            document.getElementById("paymentMethod").options.remove(0);
+        }
+    }
+}

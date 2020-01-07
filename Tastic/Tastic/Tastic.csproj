@@ -92,6 +92,7 @@
     <Content Include="index.aspx" />
     <Content Include="js\jquery-3.4.1.min.js" />
     <Content Include="js\scripts.js" />
+    <Content Include="payment.aspx" />
     <Content Include="products.aspx" />
     <Content Include="register.aspx" />
     <Content Include="settings.aspx" />
@@ -134,6 +135,13 @@
     </Compile>
     <Compile Include="loadImage.ashx.cs">
       <DependentUpon>loadImage.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="payment.aspx.cs">
+      <DependentUpon>payment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="payment.aspx.designer.cs">
+      <DependentUpon>payment.aspx</DependentUpon>
     </Compile>
     <Compile Include="products.aspx.cs">
       <DependentUpon>products.aspx</DependentUpon>

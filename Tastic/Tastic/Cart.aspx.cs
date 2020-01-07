@@ -62,7 +62,7 @@ namespace Tastic
                         $"<div class=\"products-product-container\" id=\"item_{shoppingCartItem.sciID}\">" +
                             "<div class=\"product d-flex flex-row bd-highlight align-items-center\">" +
                                 "<div class=\"product-image\">" + // image
-                                    $"<img src=\"loadImage.ashx?image={shoppingCartItem.Product.Productimage}\" alt=\"{shoppingCartItem.Product.Productimage}\" />" +
+                                    $"<img src=\"loadImage.ashx?image={shoppingCartItem.Product.Productimage}\" alt=\"{shoppingCartItem.Product.Productimage}\" class=\"product-image-image\" />" +
                                 "</div>" +
                                 "" +
                                 "<div class=\"cart-product-description\">" + // Main body
@@ -127,7 +127,7 @@ namespace Tastic
 
         protected void btnBestel_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("test");
+            Response.Redirect("payment.aspx");
         }
 
         protected void btnAnnuleren_Click(object sender, EventArgs e)
