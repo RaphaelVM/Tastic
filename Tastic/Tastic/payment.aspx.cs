@@ -8,12 +8,14 @@ using Tastic.classes;
 using Tastic.Properties;
 using Tastic.common;
 using System.Web.Services;
+using System.Windows;
 
 namespace Tastic
 {
     public partial class payment : System.Web.UI.Page
     {
         User user = new User();
+        Order order = new Order();
         string[] paymentOptions = new string[] { "Kies een methode", "iDEAL", "bankoverboeking", "bitcoin" };
 
         protected void Page_Load(object sender, EventArgs e)
@@ -109,9 +111,13 @@ namespace Tastic
         }
 
         [WebMethod]
-        public static void createOrder(Boolean useWallet)
+        public static bool createOrder(bool useWallet, float walletAmountPaid)
         {
             System.Diagnostics.Debug.WriteLine(useWallet);
+
+            Order order = new Order();
+
+            return order.createOrder(useWallet, walletAmountPaid);
         }
 
         #region 

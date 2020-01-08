@@ -192,8 +192,12 @@ function retractWallet(walletAmount) {
 }
 
 function payOrder() {
+
+    var walletAmountPaid =
+        document.getElementById("subtotalAmount").innerHTML.replace("Subtotaal: €", "").replace(",", ".") - document.getElementById("totalAmount").innerHTML.replace("Totaal: €", "").replace(",", ".");
+
     var useWallet = document.getElementById("useWallet").checked;
-    var data = { useWallet };
+    var data = { "useWallet" : useWallet, "walletAmountPaid" : walletAmountPaid };
     $.ajax({
         type: 'POST',
         url: 'payment.aspx/createOrder',
@@ -201,7 +205,13 @@ function payOrder() {
         contentType: 'application/json; charset=utf-8',
         dataType: 'json',
         success: function (data) {
+            if (data) {
+                alert("Order is aangemaakt.");
 
+                location.href = "products.aspx";
+            } else {
+                alert("Er is iets fout gegaan bij het maken van het order, probeer het opnieuw.");
+            }
         },
         error: function (data, success, error) {
             alert("Error: " + error + " || " + "Data: " + data + " || " + "Success: " + success);

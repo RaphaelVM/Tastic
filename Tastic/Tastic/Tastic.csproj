@@ -173,6 +173,7 @@
     <Compile Include="Settings.cs" />
     <Compile Include="sql\CategorieSQL.cs" />
     <Compile Include="sql\CompanySQL.cs" />
+    <Compile Include="sql\OrderSQL.cs" />
     <Compile Include="sql\ProductSQL.cs" />
     <Compile Include="sql\RoleSQL.cs" />
     <Compile Include="sql\ShoppingCartItemSQL.cs" />
