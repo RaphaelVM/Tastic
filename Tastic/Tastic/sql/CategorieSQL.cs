@@ -16,6 +16,11 @@ namespace Tastic.sql
                                 r["Description"].ToString());
         }
 
+        /// <summary>
+        /// Get the category data from the cID
+        /// </summary>
+        /// <param name="cID"></param>
+        /// <returns></returns>
         public Categorie GetCategorie(int cID)
         {
             Categorie categorie = new Categorie();
@@ -49,6 +54,11 @@ namespace Tastic.sql
             }
         }
 
+        /// <summary>
+        /// Use the pID to get the categorie which it's linked with
+        /// </summary>
+        /// <param name="pID"></param>
+        /// <returns></returns>
         public Categorie GetCategorieFromProduct(int pID)
         {
             Categorie categorie = new Categorie();

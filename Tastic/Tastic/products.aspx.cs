@@ -57,6 +57,9 @@ namespace Tastic
             extraOptions.Controls.Add(new LiteralControl(Common.checkRoles(user.Role)));
         }
 
+        /// <summary>
+        /// Create the HTML for the products
+        /// </summary>
         private void createProductList()
         {
             int ii = 0;
@@ -98,6 +101,11 @@ namespace Tastic
             }
         }
 
+        /// <summary>
+        /// Add items to the shoppingcart
+        /// </summary>
+        /// <param name="pID"></param>
+        /// <returns></returns>
         [WebMethod]
         public static string addToCart(int pID)
         {

@@ -15,24 +15,31 @@ namespace Tastic
     public partial class payment : System.Web.UI.Page
     {
         User user = new User();
-        Order order = new Order();
+        // Basic payment options, add more options to the array if needed
         string[] paymentOptions = new string[] { "Kies een methode", "iDEAL", "bankoverboeking", "bitcoin" };
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Set the basic stuff like the user
             user = user.getUser(Convert.ToInt32(Properties.Settings.Default.user_id));
 
+            // Change the texts
             walletAmount.Text = $"&euro; {user.Wallet.Amount.ToString("F2")}";
             itemsAmount.InnerText = ShoppingCart.items.Count().ToString();
 
+            // All HTML related things
             showCartProducts();
             createPaymentType();
             showTotalAmount();
             showWalletCheckbox();
 
+            // Add more options to the burgermenu if the role allows for it
             extraOptions.Controls.Add(new LiteralControl(Common.checkRoles(user.Role)));
         }
 
+        /// <summary>
+        /// Show the products which are in the cart
+        /// </summary>
         private void showCartProducts()
         {
             int ii = 0;
@@ -79,21 +86,20 @@ namespace Tastic
             }
         }
 
+        /// <summary>
+        /// Put all the payment options in the dropdown list
+        /// </summary>
         private void createPaymentType()
         {
             foreach (string option in paymentOptions)
             {
-                if (option == "Kies een methode")
-                {
-                    paymentMethod.Items.Add(new ListItem(option, option));
-                }
-                else
-                {
-                    paymentMethod.Items.Add(new ListItem(option, option));
-                }
+                paymentMethod.Items.Add(new ListItem(option, option));
             }
         }
 
+        /// <summary>
+        /// Show the total amount the user has to pay for his/her order
+        /// </summary>
         private void showTotalAmount()
         {
             double totalPrice = 0.00;
@@ -106,21 +112,31 @@ namespace Tastic
             totalAmount.Text = $"Totaal: &euro; {totalPrice.ToString("F2").Replace(".", ",")}";
         }
 
+        /// <summary>
+        /// Create the checkbox here because we need C# class data as a javascript function parameter
+        /// </summary>
         private void showWalletCheckbox()
         {
             string checkbox = $"<input type=\"checkbox\" onclick=\"retractWallet({user.Wallet.Amount})\" id=\"useWallet\" />";
             checkboxPlaceholder.Controls.Add(new LiteralControl(checkbox));
         }
 
+        /// <summary>
+        /// Create the order
+        /// </summary>
+        /// <param name="useWallet"></param>
+        /// <param name="walletAmountPaid"></param>
+        /// <returns></returns>
         [WebMethod]
         public static bool createOrder(bool useWallet, float walletAmountPaid)
         {
-            System.Diagnostics.Debug.WriteLine(useWallet);
-
+            // We have to initialise a new class because it's a static
             Order order = new Order();
 
+            // Create the order
             if (order.createOrder(useWallet, walletAmountPaid))
             {
+                // If the order has been created clear the shoppingcart
                 ShoppingCart.items.Clear();
                 return true;
             }
@@ -158,15 +174,5 @@ namespace Tastic
         }
 
         #endregion
-
-        protected void paymentMethod_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            System.Diagnostics.Debug.WriteLine("Yeet");
-
-            if (paymentMethod.SelectedValue != "Kies een methode")
-            {
-                paymentMethod.Items.Remove("Kies een methode");
-            }
-        }
     }
 }

@@ -14,6 +14,12 @@ namespace Tastic.sql
             return new Wallet(Convert.ToInt32(r["wID"]), Convert.ToDouble(r["Amount"]));
         }
 
+        /// <summary>
+        /// Retract the amount from the users wallet
+        /// </summary>
+        /// <param name="uID"></param>
+        /// <param name="retractAmount"></param>
+        /// <returns></returns>
         public bool retractFromWallet(int uID, float retractAmount)
         {
             try
@@ -39,6 +45,11 @@ namespace Tastic.sql
             }
         }
 
+        /// <summary>
+        /// Get the wallet from a user using the uID
+        /// </summary>
+        /// <param name="uID"></param>
+        /// <returns></returns>
         public Wallet getWallet(int uID)
         {
             Wallet wallet = new Wallet();

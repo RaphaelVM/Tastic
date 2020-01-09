@@ -34,6 +34,12 @@ namespace Tastic.classes
             DateAdded = dateadded;
         }
 
+        /// <summary>
+        /// Create the order
+        /// </summary>
+        /// <param name="useWallet"></param>
+        /// <param name="retractAmount"></param>
+        /// <returns></returns>
         public bool createOrder(bool useWallet, float retractAmount)
         {
             // If the option has been selected to use wallet credit take it out of the wallet too.
@@ -42,7 +48,7 @@ namespace Tastic.classes
                 walletSQL.retractFromWallet(Convert.ToInt32(Properties.Settings.Default.user_id), retractAmount);
             }
 
-            return orderSQL.createOrder(Convert.ToInt32(Properties.Settings.Default.user_id), ShoppingCart.items);
+            return orderSQL.createOrder(Convert.ToInt32(Properties.Settings.Default.user_id));
         }
     }
 }

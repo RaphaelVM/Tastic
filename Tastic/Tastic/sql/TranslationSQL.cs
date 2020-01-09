@@ -15,6 +15,10 @@ namespace Tastic.sql
                                     r["NL"].ToString(), r["EN"].ToString());
         }
 
+        /// <summary>
+        /// Get ALL the translations
+        /// </summary>
+        /// <returns></returns>
         public List<Translation> getAllTranslations()
         {
             List<Translation> Translations = new List<Translation>();

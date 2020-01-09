@@ -16,6 +16,11 @@ namespace Tastic.sql
                             Convert.ToInt32(r["rID"]));
         }
 
+        /// <summary>
+        /// Get the user using his/her uID
+        /// </summary>
+        /// <param name="uID"></param>
+        /// <returns></returns>
         public User getUser(int uID)
         {
             User user = new User();
@@ -48,6 +53,14 @@ namespace Tastic.sql
             }
         }
 
+        /// <summary>
+        /// Create a new user
+        /// </summary>
+        /// <param name="firstname"></param>
+        /// <param name="lastname"></param>
+        /// <param name="password"></param>
+        /// <param name="email"></param>
+        /// <returns></returns>
         public bool createNewUser(string firstname, string lastname, string password, string email)
         {
             int uID;
@@ -66,9 +79,11 @@ namespace Tastic.sql
                     cmd.Parameters.AddWithValue("@lastname", lastname);
                     cmd.Parameters.AddWithValue("@password", password);
 
+                    // We need the uID we just created
                     uID = (int)cmd.ExecuteScalar();
                 }
 
+                // Return the bool result of the createUserWallet function
                 return createUserWallet(uID);
             }
             catch (Exception err)
@@ -78,6 +93,11 @@ namespace Tastic.sql
             }
         }
 
+        /// <summary>
+        /// Create a wallet for when a user gets registered
+        /// </summary>
+        /// <param name="uID"></param>
+        /// <returns></returns>
         private bool createUserWallet(int uID)
         {
             try
@@ -102,6 +122,11 @@ namespace Tastic.sql
             }
         }
 
+        /// <summary>
+        /// Get the user from the email
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
         public User getUserFromEmail(string email)
         {
             User user = new User();
@@ -133,6 +158,13 @@ namespace Tastic.sql
             }
         }
 
+        /// <summary>
+        /// Update the user using the parameters provided
+        /// </summary>
+        /// <param name="uID"></param>
+        /// <param name="email"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public bool updateUser(int uID, string email, string password)
         {
             try
@@ -160,6 +192,10 @@ namespace Tastic.sql
             }
         }
 
+        /// <summary>
+        /// Get ALL the users
+        /// </summary>
+        /// <returns></returns>
         public List<User> getUsers()
         {
             List<User> users = new List<User>();

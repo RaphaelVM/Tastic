@@ -19,29 +19,38 @@ namespace Tastic
         public static List<Translation> Translations = new List<Translation>();
 
         private UserSQL UserSQL = new UserSQL();
-        private Common Common = new Common();
         private TranslationSQL TranslationSQL = new TranslationSQL();
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Get the translations
             Translations = TranslationSQL.getAllTranslations();
 
+            // Set the translations 
             SetTranslations.setRegisterTranslations(this);
         }
 
+        /// <summary>
+        /// Register the user
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnRegister_Click(object sender, EventArgs e)
         {
+            // Get the data
             string firstname = txtVoornaam.Text;
             string lastname = txtAchternaam.Text;
             string email = txtEmail.Text;
 
             string passHash = Common.Hash(txtWachtwoord.Text, 10000);
 
+            // Check if the email actually matches what we want an email to look like
             Match emailMatch = Regex.Match(txtEmail.Text, @".+[@].+[.].{2,6}", RegexOptions.IgnoreCase);
 
             // Check if the first- and lastname are not empty and the email matches a few things
             if (firstname != "" && lastname != "" && emailMatch.Success)
             {
+                // Create the user using the data he/she filled in
                 if (UserSQL.createNewUser(firstname, lastname, passHash, email))
                 {
                     createERRPar.Attributes.CssStyle.Add("display", "block");
@@ -51,7 +60,8 @@ namespace Tastic
                         (Properties.Settings.Default.lang == "NL")
                         ? "Account was succesvol aangemaakt!"
                         : "Account was created succesfully";
-                } else
+                }
+                else // Something went wrong
                 {
                     createERRPar.Attributes.CssStyle.Add("display", "block");
                     createERRPar.Attributes["class"] += " alert";
@@ -60,7 +70,8 @@ namespace Tastic
                         ? "Er is iets misgegaan met het toevoegen van de gebruiker. Probeer het opnieuw?"
                         : "Something went wrong when creating the user. Please try again.";
                 }
-            } else
+            }
+            else // First- or lastname are not filled in or the way the email is constructed is not correct
             {
                 createERRPar.Attributes.CssStyle.Add("display", "block");
                 createERRPar.Attributes["class"] += " alert";

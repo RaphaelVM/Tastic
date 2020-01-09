@@ -23,16 +23,18 @@ namespace Tastic
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Get all the translations
             Translations = TranslationSQL.getAllTranslations();
 
+            // Set the translations for the index page, send "this" as parameter so we can edit the elements
             SetTranslations.setIndexTranslations(this);
         }
 
-        protected void btnRegistreren_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("register.aspx", true);
-        }
-
+        /// <summary>
+        /// Login check
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             string email = txtEmail.Text;
@@ -45,15 +47,17 @@ namespace Tastic
             }
             else
             {
+                // Get the user from the email he/she wants to login with
                 User user = UserSQL.getUserFromEmail(email);
 
                 bool allowedLogin = allowLogin(user.Password, password);
 
                 if (allowedLogin)
                 {
-                    // Set user stuff in the settings
+                    // Set user related settings
                     Common.setUser(user);
 
+                    // Redirect to the products page
                     Response.Redirect("products.aspx", true);
                 } else
                 {
@@ -62,6 +66,12 @@ namespace Tastic
             }
         }
 
+        /// <summary>
+        /// Are the passwords the same when they are compared
+        /// </summary>
+        /// <param name="uPass"></param>
+        /// <param name="lPass"></param>
+        /// <returns></returns>
         private bool allowLogin(string uPass, string lPass)
         {
             if (Common.Verify(lPass, uPass))
@@ -70,6 +80,16 @@ namespace Tastic
             }
 
             return false;
+        }
+
+        /// <summary>
+        /// Redirects to the register page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void btnRegistreren_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("register.aspx", true);
         }
 
         #region 

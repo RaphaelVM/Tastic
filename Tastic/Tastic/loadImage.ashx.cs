@@ -13,17 +13,13 @@ using System.Windows;
 namespace Tastic
 {
     /// <summary>
-    /// Summary description for loadImage
+    /// Downloads the images from the FTP server and show them to the user
     /// </summary>
     public class loadImage : IHttpHandler
     {
 
         public void ProcessRequest(HttpContext context)
         {
-            // Unsure about the speed of this code.
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
-
             int bytesRead = 0;
             byte[] buffer = new byte[2048];
 
@@ -37,6 +33,7 @@ namespace Tastic
             request.Method = WebRequestMethods.Ftp.DownloadFile;
             request.Credentials = new NetworkCredential(Properties.Settings.Default.ftp_user, Properties.Settings.Default.ftp_pass);
 
+            // The folder in which we want to save the files temporarily
             string folder = Path.GetTempPath() + "Tastic";
             
             // Create the folder if it doesn't exist
@@ -46,6 +43,7 @@ namespace Tastic
             Stream reader = request.GetResponse().GetResponseStream();
             FileStream fileStream = new FileStream(folder + $@"\{image}", FileMode.OpenOrCreate);
 
+            // Keep doing it until the bytesRead is 0
             while (true)
             {
                 bytesRead = reader.Read(buffer, 0, buffer.Length);
@@ -62,10 +60,6 @@ namespace Tastic
 
             // Binary write the bytes
             context.Response.BinaryWrite(fileData);
-
-            stopwatch.Stop();
-
-            System.Diagnostics.Debug.WriteLine(stopwatch.ElapsedMilliseconds);
         }
 
         public bool IsReusable

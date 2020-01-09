@@ -17,6 +17,11 @@ namespace Tastic.sql
                 Convert.ToDouble(r["Price"]), Convert.ToInt32(r["cID"]));
         }
 
+        /// <summary>
+        /// Get the products the company has access to
+        /// </summary>
+        /// <param name="coID"></param>
+        /// <returns></returns>
         public List<Product> getProducts(int coID)
         {
             List<Product> products = new List<Product>();

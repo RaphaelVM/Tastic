@@ -109,6 +109,7 @@ namespace Tastic
                 // Get the item we are talking about
                 ShoppingCartItem shoppingCartItem = ShoppingCart.items.First(sci => sci.sciID == sciID);
 
+                // Change the amount
                 ShoppingCart.items[sciID].Amount = amount;
 
                 return true;
@@ -119,6 +120,11 @@ namespace Tastic
             }
         }
 
+        /// <summary>
+        /// Remove the item from the shopping cart
+        /// </summary>
+        /// <param name="sciID"></param>
+        /// <returns></returns>
         [WebMethod]
         public static int removeItem(int sciID)
         {
@@ -133,6 +139,32 @@ namespace Tastic
                 Console.WriteLine(err);
                 return ShoppingCart.items.Count;
             }
+        }
+
+        #region 
+        /* Basic buttons */
+        protected void linkProducts_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("products.aspx", true);
+        }
+
+        protected void linkSettings_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("settings.aspx", true);
+        }
+
+        protected void linkLogout_Click(object sender, EventArgs e)
+        {
+            // Clear properties
+            Properties.Settings.Default.user_fName = "";
+            Properties.Settings.Default.user_id = "";
+            Properties.Settings.Default.user_lName = "";
+            Properties.Settings.Default.user_sex = "";
+
+            Properties.Settings.Default.Save();
+
+            // Redirect to login
+            Response.Redirect("index.aspx");
         }
 
         protected void btnBestel_Click(object sender, EventArgs e)
@@ -162,28 +194,6 @@ namespace Tastic
             cartContainer.Controls.Add(new LiteralControl(html));
         }
 
-        protected void linkProducts_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("products.aspx", true);
-        }
-
-        protected void linkSettings_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("settings.aspx", true);
-        }
-
-        protected void linkLogout_Click(object sender, EventArgs e)
-        {
-            // Clear properties
-            Properties.Settings.Default.user_fName = "";
-            Properties.Settings.Default.user_id = "";
-            Properties.Settings.Default.user_lName = "";
-            Properties.Settings.Default.user_sex = "";
-
-            Properties.Settings.Default.Save();
-
-            // Redirect to login
-            Response.Redirect("index.aspx");
-        }
+        #endregion
     }
 }

@@ -16,11 +16,14 @@ namespace Tastic
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Get the user
             user = user.getUser(Convert.ToInt32(Properties.Settings.Default.user_id));
 
+            // Change some stuff
             walletAmount.Text = $"&euro; {user.Wallet.Amount.ToString("F2")}";
             itemsAmount.InnerText = ShoppingCart.items.Count().ToString();
 
+            // Add more options if they are there for that role
             extraOptions.Controls.Add(new LiteralControl(Common.checkRoles(user.Role)));
 
             getUserList();

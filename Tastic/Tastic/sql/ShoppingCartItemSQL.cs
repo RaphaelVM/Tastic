@@ -19,6 +19,11 @@ namespace Tastic.sql
                                             Convert.ToDouble(r["Price"]), Convert.ToInt32(r["cID"])));
         }
 
+        /// <summary>
+        /// Use the pID to get all the data to fill a ShoppingCartItem object
+        /// </summary>
+        /// <param name="pID"></param>
+        /// <returns></returns>
         public ShoppingCartItem getShoppingCartItem(int pID)
         {
             ShoppingCartItem shoppingCartItem = new ShoppingCartItem();

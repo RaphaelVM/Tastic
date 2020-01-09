@@ -17,38 +17,11 @@ namespace Tastic.sql
                         new Catering());
         }
 
-        public Company getCompany(int uID)
-        {
-            Company company = new Company();
-            try
-            { 
-                database.OpenGeneralConnection();
-
-                using (var cmd = new MySqlCommand())
-                {
-                    cmd.Connection = database.GeneralConnection;
-                    cmd.CommandText = "SELECT * FROM company WHERE coID = " +
-                                      " (SELECT coID FROM usertocompany WHERE uID = @uid)";
-                    cmd.Parameters.AddWithValue("@uid", uID);
-
-                    using (var comReader = cmd.ExecuteReader())
-                    {
-                        while (comReader.Read())
-                        {
-                            company = newCompany(comReader);
-                        }
-                    }
-                }
-
-                return company;
-            }
-            catch (Exception err)
-            {
-                Console.WriteLine(err);
-                return company;
-            }
-        }
-
+        /// <summary>
+        /// Get the company to which a user is linked to using the uID
+        /// </summary>
+        /// <param name="uID"></param>
+        /// <returns></returns>
         public Company getCompanyFromUser(int uID)
         {
             Company company = new Company();

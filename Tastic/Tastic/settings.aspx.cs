@@ -26,19 +26,29 @@ namespace Tastic
             ddlLanguage.SelectedValue = Properties.Settings.Default.lang;
         }
 
+        /// <summary>
+        /// Save the usr
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            // Save the edited values in the textbox
+            // Get the data from the textboxes
             int uID = Convert.ToInt32(Properties.Settings.Default.user_id);
             string email = txtEmail.Text;
             string password = Common.Hash(txtPassword.Text, 10000);
             string language = ddlLanguage.SelectedValue;
 
+            // Change the language and save it
             Properties.Settings.Default.lang = language;
             Properties.Settings.Default.Save();
-
+            
+            // Update the user
             user.updateUser(uID, email, password);
         }
+
+        #region
+        /* Basic redirects */
 
         // Redirect to products page
         protected void linkProducts_Click(object sender, EventArgs e)
@@ -57,6 +67,8 @@ namespace Tastic
         {
             Response.Redirect("index.aspx", true);
         }
+
+        #endregion
     }
 }
 
