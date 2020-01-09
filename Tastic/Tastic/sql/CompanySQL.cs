@@ -65,9 +65,15 @@ namespace Tastic.sql
 
                     using (var reader = cmd.ExecuteReader())
                     {
-                        while (reader.Read())
+                        if (reader.HasRows)
                         {
-                            company = newCompany(reader);
+                            while (reader.Read())
+                            {
+                                company = newCompany(reader);
+                            }
+                        } else
+                        {
+                            company = new Company();
                         }
                     }
 

@@ -45,5 +45,37 @@ namespace Tastic.sql
                 return role;
             }
         }
+
+        public Role getRoleFromUser(int uID)
+        {
+            Role role = new Role();
+            try
+            {
+                database.OpenGeneralConnection();
+
+                using (var cmd = new MySqlCommand())
+                {
+                    cmd.Connection = database.GeneralConnection;
+                    cmd.CommandText = "SELECT * FROM roles WHERE rID = (SELECT rID FROM users WHERE uID = @uid)";
+                    cmd.Parameters.AddWithValue("@uid", uID);
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            role = newRole(reader);
+                        }
+                    }
+
+                }
+
+                return role;
+            }
+            catch (Exception err)
+            {
+                Console.WriteLine(err);
+                return role;
+            }
+        }
     }
 }

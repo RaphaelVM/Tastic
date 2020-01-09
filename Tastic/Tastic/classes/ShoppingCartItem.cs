@@ -10,7 +10,7 @@ namespace Tastic.classes
     {
         private ShoppingCartItemSQL shoppingCartItemSQL = new ShoppingCartItemSQL();
         
-        public int? sciID;
+        //public int? sciID;
         public Product Product;
         public int Amount;
 
@@ -18,7 +18,7 @@ namespace Tastic.classes
 
         public ShoppingCartItem(int? sciid, Product product, int amount = 1)
         {
-            sciID = ShoppingCart.items.Count;
+            //sciID = ShoppingCart.items.Count;
             Product = product;
             Amount = amount;
         }

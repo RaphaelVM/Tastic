@@ -37,20 +37,16 @@ namespace Tastic.classes
             Phonenumber = phonenumber;
             Emailadress = emailadress;
             Catering = catering;
-            products = this.getProducts(coid);
         }
 
-        protected List<Product> getProducts(int coID)
+        public List<Product> getProducts(int coID)
         {
-            // We add the categories here. Problems arose when doing it in the constructor
             List<Product> products = productSQL.getProducts(coID);
 
-            List<Product> newProductList = new List<Product>();
+            // We set the categories here. Problems arose when doing it in the constructor
             foreach (Product product in products)
             {
                 product.Categorie = categorieSQL.GetCategorieFromProduct(product.pID);
-
-                newProductList.Add(product);
             }
 
             return products;

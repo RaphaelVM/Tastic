@@ -97,6 +97,7 @@
     <Content Include="register.aspx" />
     <Content Include="settings.aspx" />
     <Content Include="styles\global.css" />
+    <Content Include="users.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -180,6 +181,13 @@
     <Compile Include="sql\TranslationSQL.cs" />
     <Compile Include="sql\UserSQL.cs" />
     <Compile Include="sql\WalletSQL.cs" />
+    <Compile Include="users.aspx.cs">
+      <DependentUpon>users.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="users.aspx.designer.cs">
+      <DependentUpon>users.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="loadImage.ashx" />

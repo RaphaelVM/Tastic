@@ -10,7 +10,7 @@
 namespace Tastic {
     
     
-    public partial class Cart {
+    public partial class users {
         
         /// <summary>
         /// form2 control.
@@ -74,32 +74,5 @@ namespace Tastic {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl itemsAmount;
-        
-        /// <summary>
-        /// cartContainer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel cartContainer;
-        
-        /// <summary>
-        /// btnBestel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBestel;
-        
-        /// <summary>
-        /// btnAnnuleren control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAnnuleren;
     }
 }

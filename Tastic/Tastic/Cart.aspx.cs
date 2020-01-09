@@ -18,10 +18,12 @@ namespace Tastic
         {
             user = user.getUser(Convert.ToInt32(Properties.Settings.Default.user_id));
 
-            walletAmount.Text = $"&euro;{user.Wallet.Amount.ToString("F2")}";
+            walletAmount.Text = $"&euro; {user.Wallet.Amount.ToString("F2")}";
             itemsAmount.InnerText = ShoppingCart.items.Count().ToString();
 
             showCartProducts();
+
+            extraOptions.Controls.Add(new LiteralControl(Common.checkRoles(user.Role)));
         }
 
         protected void btnLogout_Click(object sender, EventArgs e)

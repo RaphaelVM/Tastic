@@ -50,6 +50,7 @@ namespace Tastic.sql
 
         public bool createNewUser(string firstname, string lastname, string password, string email)
         {
+            int uID;
             try
             {
                 database.OpenGeneralConnection();
@@ -58,11 +59,36 @@ namespace Tastic.sql
                 {
                     cmd.Connection = database.GeneralConnection;
                     cmd.CommandText = "INSERT INTO users (Email, Firstname, Lastname, Password)" +
-                                      "VALUES (@email, @firstname, @lastname, @password)";
+                                      "VALUES (@email, @firstname, @lastname, @password);" +
+                                      "SELECT MAX(uID) FROM users;";
                     cmd.Parameters.AddWithValue("@email", email);
                     cmd.Parameters.AddWithValue("@firstname", firstname);
                     cmd.Parameters.AddWithValue("@lastname", lastname);
                     cmd.Parameters.AddWithValue("@password", password);
+
+                    uID = (int)cmd.ExecuteScalar();
+                }
+
+                return createUserWallet(uID);
+            }
+            catch (Exception err)
+            {
+                Console.WriteLine(err);
+                return false;
+            }
+        }
+
+        private bool createUserWallet(int uID)
+        {
+            try
+            {
+                database.OpenGeneralConnection();
+
+                using (var cmd = new MySqlCommand())
+                {
+                    cmd.Connection = database.GeneralConnection;
+                    cmd.CommandText = "INSERT INTO wallet (uID, amount) VALUES (@uid, 0.00)";
+                    cmd.Parameters.AddWithValue("@uid", uID);
 
                     cmd.ExecuteNonQuery();
                 }
@@ -131,6 +157,36 @@ namespace Tastic.sql
             {
                 Console.WriteLine(err);
                 return false;
+            }
+        }
+
+        public List<User> getUsers()
+        {
+            List<User> users = new List<User>();
+            try
+            {
+                database.OpenGeneralConnection();
+
+                using (var cmd = new MySqlCommand())
+                {
+                    cmd.Connection = database.GeneralConnection;
+                    cmd.CommandText = "SELECT * FROM users";
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            users.Add(newUser(reader));
+                        }
+                    }
+                }
+
+                return users;
+            }
+            catch (Exception err)
+            {
+                Console.WriteLine(err);
+                return users;
             }
         }
     }

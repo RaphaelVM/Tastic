@@ -9,10 +9,6 @@ namespace Tastic.classes
 {
     public static class ShoppingCart
     {
-        private static Product product = new Product();
-
-        static int scID;
-        static int uID = Convert.ToInt32(Properties.Settings.Default.user_id);
         static public List<ShoppingCartItem> items { get; set; }
 
         static ShoppingCart()

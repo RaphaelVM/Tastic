@@ -18,7 +18,7 @@ namespace Tastic
         {
             //  Set user settings
             user = user.getUser(Convert.ToInt32(Properties.Settings.Default.user_id));
-            walletAmount.Text = $"&euro;{user.Wallet.Amount.ToString()}";
+            walletAmount.Text = $"&euro; {user.Wallet.Amount.ToString()}";
 
             // Fill forms with logged-in user info
             txtEmail.Text = user.Email;

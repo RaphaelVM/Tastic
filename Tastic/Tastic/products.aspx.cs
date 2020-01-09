@@ -21,11 +21,13 @@ namespace Tastic
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Get the needed classes
+            // Get the needed classes & set the variables
             user = user.getUser(Convert.ToInt32(Properties.Settings.Default.user_id));
             company = company.getCompanyFromUser(Convert.ToInt32(Properties.Settings.Default.user_id));
+            company.products = company.getProducts(company.coID);
             productList = company.products;
 
+            // Check which categorie is selected
             switch (Request.QueryString.ToString())
             {
                 case "broodjes":
@@ -47,10 +49,11 @@ namespace Tastic
             // Create the basic html
             createProductList();
 
-            walletAmount.Text = $"&euro;{user.Wallet.Amount.ToString("F2")}";
+            walletAmount.Text = $"&euro; {user.Wallet.Amount.ToString("F2")}";
 
             itemsAmount.InnerHtml = ShoppingCart.items.Count.ToString();
 
+            // Extra option incase the role allows for it
             extraOptions.Controls.Add(new LiteralControl(Common.checkRoles(user.Role)));
         }
 
@@ -59,6 +62,7 @@ namespace Tastic
             int ii = 0;
             foreach (Product product in productList)
             {
+                // Create the element for each products
                 string id = $"{product.pID}";
                 string html = 
                         "<div class=\"products-product-container\">" +
@@ -89,6 +93,7 @@ namespace Tastic
                     html += "<div class=\"spacer-products\"></div>";
                 }
 
+                // Add the control
                 productsContainer.Controls.Add(new LiteralControl(html));
             }
         }
@@ -96,26 +101,11 @@ namespace Tastic
         [WebMethod]
         public static string addToCart(int pID)
         {
+            // Add the product to the shoppingcart
             ShoppingCartItem shoppingCartItem = new ShoppingCartItem();
             ShoppingCart.addItem(shoppingCartItem.getShoppingCartItem(pID));
 
-            List<ShoppingCartItem> items = ShoppingCart.Items;
-
-            return items.Count.ToString();
-        }
-
-        protected void linkLogout_Click(object sender, EventArgs e)
-        {
-            // Clear properties
-            Properties.Settings.Default.user_fName = "";
-            Properties.Settings.Default.user_id = "";
-            Properties.Settings.Default.user_lName = "";
-            Properties.Settings.Default.user_sex = "";
-
-            Properties.Settings.Default.Save();
-
-            // Redirect to login
-            Response.Redirect("index.aspx");
+            return ShoppingCart.items.Count.ToString();
         }
 
         #region
@@ -153,6 +143,20 @@ namespace Tastic
         protected void linkSettings_Click(object sender, EventArgs e)
         {
             Response.Redirect("settings.aspx", true);
+        }
+
+        protected void linkLogout_Click(object sender, EventArgs e)
+        {
+            // Clear properties
+            Properties.Settings.Default.user_fName = "";
+            Properties.Settings.Default.user_id = "";
+            Properties.Settings.Default.user_lName = "";
+            Properties.Settings.Default.user_sex = "";
+
+            Properties.Settings.Default.Save();
+
+            // Redirect to login
+            Response.Redirect("index.aspx");
         }
 
         #endregion

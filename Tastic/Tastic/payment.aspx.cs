@@ -22,13 +22,15 @@ namespace Tastic
         {
             user = user.getUser(Convert.ToInt32(Properties.Settings.Default.user_id));
 
-            walletAmount.Text = $"&euro;{user.Wallet.Amount.ToString("F2")}";
+            walletAmount.Text = $"&euro; {user.Wallet.Amount.ToString("F2")}";
             itemsAmount.InnerText = ShoppingCart.items.Count().ToString();
 
             showCartProducts();
             createPaymentType();
             showTotalAmount();
             showWalletCheckbox();
+
+            extraOptions.Controls.Add(new LiteralControl(Common.checkRoles(user.Role)));
         }
 
         private void showCartProducts()
@@ -117,7 +119,15 @@ namespace Tastic
 
             Order order = new Order();
 
-            return order.createOrder(useWallet, walletAmountPaid);
+            if (order.createOrder(useWallet, walletAmountPaid))
+            {
+                ShoppingCart.items.Clear();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         #region 
