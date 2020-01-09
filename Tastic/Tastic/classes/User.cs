@@ -37,6 +37,11 @@ namespace Tastic.classes
             Sex = sex;
         }
 
+        /// <summary>
+        /// Get a user by its uID
+        /// </summary>
+        /// <param name="uID"></param>
+        /// <returns></returns>
         public User getUser(int uID)
         {
             // To prevent reader closed error when getting multiple users
@@ -47,16 +52,31 @@ namespace Tastic.classes
             return user;
         }
 
+        /// <summary>
+        /// Gets ALL users
+        /// </summary>
+        /// <returns></returns>
         public List<User> getUsers()
         {
             return userSQL.getUsers();
         }
 
+        /// <summary>
+        /// Updates the user
+        /// </summary>
+        /// <param name="uID"></param>
+        /// <param name="email"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public bool updateUser(int uID, string email, string password)
         {
             return userSQL.updateUser(uID, email, password);
         }
 
+        /// <summary>
+        /// Fills the company for each user
+        /// </summary>
+        /// <param name="users"></param>
         public void getCompaniesFromUsers(List<User> users)
         {
             foreach (User user in users)
@@ -65,6 +85,10 @@ namespace Tastic.classes
             }
         }
 
+        /// <summary>
+        /// Fills the wallet for each user
+        /// </summary>
+        /// <param name="users"></param>
         public void getWalletsFromUsers(List<User> users)
         {
             foreach (User user in users)

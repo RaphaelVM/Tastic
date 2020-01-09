@@ -28,6 +28,9 @@ namespace Tastic
             createUserList();
         }
 
+        /// <summary>
+        /// Get ALL the users
+        /// </summary>
         private void getUserList()
         {
             userList = user.getUsers();
@@ -37,6 +40,9 @@ namespace Tastic
             user.getWalletsFromUsers(userList);
         }
 
+        /// <summary>
+        /// Format the userlist into html and show it
+        /// </summary>
         private void createUserList()
         {
             string html = "";

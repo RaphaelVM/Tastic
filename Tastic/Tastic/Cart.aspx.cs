@@ -58,6 +58,7 @@ namespace Tastic
                 cartContainer.Controls.Add(new LiteralControl(html));
             }
 
+            // Foreach item in the cart create some html
             foreach (ShoppingCartItem shoppingCartItem in ShoppingCart.items)
             {
                 string html = 
@@ -94,11 +95,18 @@ namespace Tastic
             }
         }
 
+        /// <summary>
+        /// Update the amount of a product in the shopping cart
+        /// </summary>
+        /// <param name="sciID"></param>
+        /// <param name="amount"></param>
+        /// <returns></returns>
         [WebMethod]
         public static bool updateAmount(int sciID, int amount)
         {
             try
             {
+                // Get the item we are talking about
                 ShoppingCartItem shoppingCartItem = ShoppingCart.items.First(sci => sci.sciID == sciID);
 
                 ShoppingCart.items[sciID].Amount = amount;

@@ -15,6 +15,11 @@ namespace Tastic.sql
                             r["Description"].ToString());
         }
 
+        /// <summary>
+        /// SQL method for getting a role by it's rID
+        /// </summary>
+        /// <param name="rID"></param>
+        /// <returns></returns>
         public Role getRole(int rID)
         {
             Role role = new Role();
@@ -46,6 +51,11 @@ namespace Tastic.sql
             }
         }
 
+        /// <summary>
+        /// Gets the role from the user using its uID
+        /// </summary>
+        /// <param name="uID"></param>
+        /// <returns></returns>
         public Role getRoleFromUser(int uID)
         {
             Role role = new Role();

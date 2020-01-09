@@ -18,7 +18,7 @@ function checkPass() {
         var lblPass = document.getElementById("lblPass");
         var btnRegister = document.getElementById("btnRegister");
 
-        if (pass.value == passHerh.value) {
+        if (pass.value == passHerh.value) { // Passwords match let the user register
             if (!passErr.classList.contains("invisible-cust")) {
                 passErr.classList.add("invisible-cust");
 
@@ -26,7 +26,7 @@ function checkPass() {
 
                 btnRegister.disabled = false;
             }
-        } else {
+        } else { // Passwords don't match don't let the user register
             if (passErr.classList.contains("invisible-cust")) {
                 passErr.classList.remove("invisible-cust");
 
@@ -67,6 +67,7 @@ if (window.location.pathname == "/products.aspx") {
     }, 25);
 }
 
+// Make a webrequest to add the product to the shoppingcart
 function addToCart(pID) {
     var data = { pID };
 
@@ -93,6 +94,7 @@ function addToCart(pID) {
     });
 }
 
+// Make a webrequest to change the amount of an item
 function changeAmount(sciID) {
 
     if (document.getElementById(sciID).value < 1) {
@@ -123,6 +125,7 @@ function changeAmount(sciID) {
     }
 }
 
+// Make a webrequest to remove the item from the shoppingcart
 function removeItem(sciID) {
     var data = { sciID };
 
@@ -135,8 +138,10 @@ function removeItem(sciID) {
         success: function (data) {
             document.getElementById("itemsAmount").innerHTML = data.d;
 
+            // Also remove the element in which it resided
             document.getElementById("item_" + data.d).remove();
 
+            // When there are no more items in the cart show the standard "no items"
             if (document.getElementById("cartContainer").children.length == 0) {
                 document.getElementById("cartContainer").innerHTML =
                     "<div class=\"products-product-container\" id=\"noproducts\">" +
@@ -157,6 +162,7 @@ function removeItem(sciID) {
     });
 }
 
+// When a user wants to pay and wants to use the wallet we have to update some html, do that here
 function retractWallet(walletAmount) {
     setTimeout(function () { 
 
@@ -164,39 +170,49 @@ function retractWallet(walletAmount) {
             var totalAmount = /([€ ]+)(.+)/.exec(document.getElementById("subtotalAmount").innerHTML)[2].replace(",", ".");
             var payFullWithWallet = false;
 
+            // the amount in the wallet is lower than the amount which is in the cart
             if (walletAmount < totalAmount) {
+                // Remove the wallet amount from the total amount
                 var newAmount = totalAmount - walletAmount;
-            } else if (walletAmount == totalAmount) {
+            } else if (walletAmount == totalAmount) { // The wallet amount and the total amount are equal
+                // Set the total amount to 0 and payFullWithWallet to 1
                 var newAmount = 0.00;
                 payFullWithWallet = true;
-            } else if (walletAmount > totalAmount) {
+            } else if (walletAmount > totalAmount) { // The wallet amount is bigger
+                // Set the total amount to 0 and payFullWithWallet to 1
                 var newAmount = 0.00;
                 payFullWithWallet = true;
             }
 
+            // When the total amount of the order can be paid with what's in the wallet we don't need to show the payment method
             if (payFullWithWallet) {
                 document.getElementById("paymentMethod").style.display = "none";
             } else {
                 document.getElementById("paymentMethod").style.display = "block";
             }
 
+            // Change the text of the total amount to the new total amount
             document.getElementById("totalAmount").innerHTML = "Totaal: &euro; " + newAmount.toFixed(2).toString().replace(".", ",");
         } else {
+            // Is the user not paying with his/her wallet then show the paymentmethod dropdown incase it was hidden before
             if (document.getElementById("paymentMethod").style.display == "none") {
                 document.getElementById("paymentMethod").style.display = "block";
             }
 
+            // Total = subtotal
             document.getElementById("totalAmount").innerHTML = document.getElementById("subtotalAmount").innerHTML.replace("Subtotaal: ", "Totaal: ");
         }
     }, 20);
 }
 
+// Create a webrequest for the payment of the order
 function payOrder() {
 
     var walletAmountPaid =
         document.getElementById("subtotalAmount").innerHTML.replace("Subtotaal: €", "").replace(",", ".") - document.getElementById("totalAmount").innerHTML.replace("Totaal: €", "").replace(",", ".");
 
     var useWallet = document.getElementById("useWallet").checked;
+    // Create a JSON string with the data we need the C# code to have
     var data = { "useWallet" : useWallet, "walletAmountPaid" : walletAmountPaid };
     $.ajax({
         type: 'POST',
@@ -205,11 +221,12 @@ function payOrder() {
         contentType: 'application/json; charset=utf-8',
         dataType: 'json',
         success: function (data) {
+            // If the data == true then show an alert and redirect to the products.aspx page
             if (data) {
                 alert("Order is aangemaakt.");
 
                 location.href = "products.aspx";
-            } else {
+            } else { // Something messed up so show an alert that something went wrong
                 alert("Er is iets fout gegaan bij het maken van het order, probeer het opnieuw.");
             }
         },
@@ -222,6 +239,7 @@ function payOrder() {
     });
 }
 
+// Not _really_ needed but it's nice
 function removeFirstItem() {
     // When you choose a different option that "Kies een methode" remove that option
     if (document.getElementById("paymentMethod").options[0].value == "Kies een methode") {

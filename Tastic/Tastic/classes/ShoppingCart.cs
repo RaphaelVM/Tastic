@@ -21,6 +21,10 @@ namespace Tastic.classes
             get { return items; }
         }
 
+        /// <summary>
+        /// Add an item to the shoppingcart
+        /// </summary>
+        /// <param name="shoppingCartItem"></param>
         public static void addItem(ShoppingCartItem shoppingCartItem)
         {
             items.Add(shoppingCartItem);

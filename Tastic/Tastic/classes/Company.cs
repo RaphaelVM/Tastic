@@ -39,6 +39,11 @@ namespace Tastic.classes
             Catering = catering;
         }
 
+        /// <summary>
+        /// Get all the products a company has access to
+        /// </summary>
+        /// <param name="coID"></param>
+        /// <returns></returns>
         public List<Product> getProducts(int coID)
         {
             List<Product> products = productSQL.getProducts(coID);
@@ -52,6 +57,11 @@ namespace Tastic.classes
             return products;
         }
 
+        /// <summary>
+        /// Use a uID to get the company the user is linked to
+        /// </summary>
+        /// <param name="uid"></param>
+        /// <returns></returns>
         public Company getCompanyFromUser(int uid)
         {
             return companySQL.getCompanyFromUser(uid);
