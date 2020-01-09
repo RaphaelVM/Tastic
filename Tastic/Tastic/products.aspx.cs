@@ -27,20 +27,20 @@ namespace Tastic
             company.products = company.getProducts(company.coID);
             productList = company.products;
 
-            // Check which categorie is selected
+            // Check which Category is selected
             switch (Request.QueryString.ToString())
             {
                 case "broodjes":
-                    productList = productList.Where(pL => pL.Categorie.Name == "Broodjes").ToList();
+                    productList = productList.Where(pL => pL.Category.Name == "Broodjes").ToList();
                     break;
                 case "soepen":
-                    productList = productList.Where(pL => pL.Categorie.Name == "Soepen").ToList();
+                    productList = productList.Where(pL => pL.Category.Name == "Soepen").ToList();
                     break;
                 case "snacks":
-                    productList = productList.Where(pL => pL.Categorie.Name == "Snacks").ToList();
+                    productList = productList.Where(pL => pL.Category.Name == "Snacks").ToList();
                     break;
                 case "dranken":
-                    productList = productList.Where(pL => pL.Categorie.Name == "Dranken").ToList();
+                    productList = productList.Where(pL => pL.Category.Name == "Dranken").ToList();
                     break;
                 default:
                     break;

@@ -8,11 +8,11 @@ using Tastic.common;
 
 namespace Tastic.sql
 {
-    public class CategorieSQL
+    public class CategorySQL
     {
-        private Categorie newCategorie(MySqlDataReader r)
+        private Category newCategory(MySqlDataReader r)
         {
-            return new Categorie(Convert.ToInt32(r["cID"]), r["Name"].ToString(),
+            return new Category(Convert.ToInt32(r["cID"]), r["Name"].ToString(),
                                 r["Description"].ToString());
         }
 
@@ -21,9 +21,9 @@ namespace Tastic.sql
         /// </summary>
         /// <param name="cID"></param>
         /// <returns></returns>
-        public Categorie GetCategorie(int cID)
+        public Category GetCategory(int cID)
         {
-            Categorie categorie = new Categorie();
+            Category Category = new Category();
             try
             {
                 database.OpenGeneralConnection();
@@ -31,37 +31,37 @@ namespace Tastic.sql
                 using (var cmd = new MySqlCommand())
                 {
                     cmd.Connection = database.GeneralConnection;
-                    cmd.CommandText = "SELECT * FROM categories WHERE cID = @cid";
+                    cmd.CommandText = "SELECT * FROM Categorys WHERE cID = @cid";
                     cmd.Parameters.AddWithValue("@cid", cID);
 
                     using (var reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            categorie = newCategorie(reader);
+                            Category = newCategory(reader);
                         }
                     }
 
                 }
 
-                return categorie;
+                return Category;
 
             }
             catch (Exception err)
             {
                 Console.WriteLine(err);
-                return categorie;
+                return Category;
             }
         }
 
         /// <summary>
-        /// Use the pID to get the categorie which it's linked with
+        /// Use the pID to get the Category which it's linked with
         /// </summary>
         /// <param name="pID"></param>
         /// <returns></returns>
-        public Categorie GetCategorieFromProduct(int pID)
+        public Category GetCategoryFromProduct(int pID)
         {
-            Categorie categorie = new Categorie();
+            Category Category = new Category();
             try
             {
                 database.OpenGeneralConnection();
@@ -69,7 +69,7 @@ namespace Tastic.sql
                 using (var cmd = new MySqlCommand())
                 {
                     cmd.Connection = database.GeneralConnection;
-                    cmd.CommandText = "SELECT * FROM categories WHERE cID = " +
+                    cmd.CommandText = "SELECT * FROM Categorys WHERE cID = " +
                                         "(SELECT cID FROM products WHERE pID = @pid)";
                     cmd.Parameters.AddWithValue("@pid", pID);
 
@@ -77,18 +77,18 @@ namespace Tastic.sql
                     {
                         while (reader.Read())
                         {
-                            categorie = newCategorie(reader);
+                            Category = newCategory(reader);
                         }
                     }
                 }
 
-                return categorie;
+                return Category;
 
             }
             catch (Exception err)
             {
                 Console.WriteLine(err);
-                return categorie;
+                return Category;
             }
         }
     }

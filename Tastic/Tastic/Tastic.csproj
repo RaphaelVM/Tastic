@@ -108,7 +108,7 @@
     <Compile Include="Cart.aspx.designer.cs">
       <DependentUpon>Cart.aspx</DependentUpon>
     </Compile>
-    <Compile Include="classes\Categorie.cs" />
+    <Compile Include="classes\Category.cs" />
     <Compile Include="classes\Catering.cs" />
     <Compile Include="classes\Company.cs" />
     <Compile Include="classes\database.cs" />

@@ -8,7 +8,7 @@ namespace Tastic.classes
 {
     public class Product
     {
-        private CategorieSQL categorieSQL = new CategorieSQL();
+        private CategorySQL CategorySQL = new CategorySQL();
         private ShoppingCartItemSQL shoppingCartItemSQL = new ShoppingCartItemSQL();
 
         public int pID;
@@ -18,7 +18,7 @@ namespace Tastic.classes
         public bool Active;
         public double Price;
         public string Description;
-        public Categorie Categorie;
+        public Category Category;
 
         public Product() { }
 
@@ -35,10 +35,10 @@ namespace Tastic.classes
         }
 
         // Don't do this for now.
-        public Categorie getCategorie(int cid)
-        {
-            return categorieSQL.GetCategorie(cid);
-        }
+        //public Category getCategory(int cid)
+        //{
+        //    return CategorySQL.GetCategory(cid);
+        //}
 
         public ShoppingCartItem getShoppingCartItem(int pID)
         {
