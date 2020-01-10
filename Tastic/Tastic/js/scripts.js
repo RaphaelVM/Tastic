@@ -248,3 +248,8 @@ function removeFirstItem() {
         }
     }
 }
+
+// redirect to editpage
+function editUser(uID) {
+    location.href = "edituser.aspx?uid=" + uID;
+}

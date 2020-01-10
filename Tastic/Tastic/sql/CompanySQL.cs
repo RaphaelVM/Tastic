@@ -60,5 +60,36 @@ namespace Tastic.sql
                 return company;
             }
         }
+
+        public List<Company> getAllCompanies()
+        {
+            List<Company> companies = new List<Company>();
+            try
+            {
+                database.OpenGeneralConnection();
+
+                using (var cmd = new MySqlCommand())
+                {
+                    cmd.Connection = database.GeneralConnection;
+                    cmd.CommandText = "SELECT * FROM company";
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            companies.Add(newCompany(reader));
+                        }
+                    }
+
+                }
+
+                return companies;
+            }
+            catch (Exception err)
+            {
+                Console.WriteLine(err);
+                return companies;
+            }
+        }
     }
 }

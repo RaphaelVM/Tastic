@@ -85,6 +85,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Cart.aspx" />
+    <Content Include="edituser.aspx" />
     <Content Include="Global.asax" />
     <Content Include="images\backgroundLogin.jpg" />
     <Content Include="images\finalLogoBlack.png" />
@@ -124,6 +125,13 @@
     <Compile Include="classes\Wallet.cs" />
     <Compile Include="common\Common.cs" />
     <Compile Include="common\SetTranslations.cs" />
+    <Compile Include="edituser.aspx.cs">
+      <DependentUpon>edituser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="edituser.aspx.designer.cs">
+      <DependentUpon>edituser.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

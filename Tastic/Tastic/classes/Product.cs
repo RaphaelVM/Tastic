@@ -44,5 +44,17 @@ namespace Tastic.classes
         {
             return shoppingCartItemSQL.getShoppingCartItem(pID);
         }
+
+        public List<Product> fillCategories(List<Product> products)
+        {
+            List<Product> newProductList = new List<Product>();
+            foreach (Product product in products)
+            {
+                product.Category = CategorySQL.GetCategoryFromProduct(product.pID);
+                newProductList.Add(product);
+            }
+
+            return newProductList;
+        }
     }
 }

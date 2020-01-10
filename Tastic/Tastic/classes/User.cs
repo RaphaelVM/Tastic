@@ -48,6 +48,7 @@ namespace Tastic.classes
             User user = userSQL.getUser(uID);
             user.Role = roleSQL.getRoleFromUser(uID);
             user.Wallet = walletSQL.getWallet(uID);
+            user.company = companySQL.getCompanyFromUser(uID);
 
             return user;
         }
@@ -94,6 +95,18 @@ namespace Tastic.classes
             foreach (User user in users)
             {
                 user.Wallet = walletSQL.getWallet(user.uID);
+            }
+        }
+
+        /// <summary>
+        /// Fill the roles for each user
+        /// </summary>
+        /// <param name="users"></param>
+        public void GetRolesFromUsers(List<User> users)
+        {
+            foreach (User user in users)
+            {
+                user.Role = roleSQL.getRoleFromUser(user.uID);
             }
         }
     }

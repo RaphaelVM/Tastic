@@ -329,3 +329,14 @@
     text-align: center;
     margin: 2px;
 }
+
+.backgroundEdituser {
+    background-color: white;
+    margin-right: 20%;
+    margin-left: 20%;
+}
+
+.editUser-table-data {
+    text-align: right;
+    padding-right: 5px;
+}

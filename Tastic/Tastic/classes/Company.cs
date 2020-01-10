@@ -66,5 +66,14 @@ namespace Tastic.classes
         {
             return companySQL.getCompanyFromUser(uid);
         }
+
+        /// <summary>
+        /// Get all companies
+        /// </summary>
+        /// <returns></returns>
+        public List<Company> getAllCompanies()
+        {
+            return companySQL.getAllCompanies();
+        }
     }
 }

@@ -69,7 +69,7 @@ namespace Tastic.sql
                 using (var cmd = new MySqlCommand())
                 {
                     cmd.Connection = database.GeneralConnection;
-                    cmd.CommandText = "SELECT * FROM Categorys WHERE cID = " +
+                    cmd.CommandText = "SELECT * FROM categories WHERE cID = " +
                                         "(SELECT cID FROM products WHERE pID = @pid)";
                     cmd.Parameters.AddWithValue("@pid", pID);
 

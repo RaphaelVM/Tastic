@@ -57,7 +57,7 @@
 
                 <div class="backgroundCart">
                     <div class="row">
-                    
+                        <asp:PlaceHolder ID="userPlaceholder" runat="server"></asp:PlaceHolder>
                     </div>
                 </div>
             </form>

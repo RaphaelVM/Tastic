@@ -18,6 +18,7 @@ namespace Tastic
         private List<Product> productList = new List<Product>();
         private Company company = new Company();
         private User user = new User();
+        private Product product = new Product();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -26,6 +27,7 @@ namespace Tastic
             company = company.getCompanyFromUser(Convert.ToInt32(Properties.Settings.Default.user_id));
             company.products = company.getProducts(company.coID);
             productList = company.products;
+            productList = product.fillCategories(productList);
 
             // Check which Category is selected
             switch (Request.QueryString.ToString())

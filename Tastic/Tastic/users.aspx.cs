@@ -41,6 +41,8 @@ namespace Tastic
             user.getCompaniesFromUsers(userList);
 
             user.getWalletsFromUsers(userList);
+
+            user.GetRolesFromUsers(userList);
         }
 
         /// <summary>
@@ -48,12 +50,34 @@ namespace Tastic
         /// </summary>
         private void createUserList()
         {
-            string html = "";
+            string html =
+                "<table class=\"table\">" +
+                    "<tr>" +
+                        "<th>Naam</th>" +
+                        "<th>Naam bedrijf</th>" +
+                        "<th>Wallet amount</th>" +
+                        "<th>Geslacht</th>" +
+                        "<th>Rol</th>" +
+                    "</tr>";
 
             foreach (User user in userList)
             {
+                string sex = (user.Sex == null) ? "" : user.Sex;
 
+                html +=
+                    "<tr>" +
+                        $"<td>{user.Lastname}, {user.Firstname}</td>" +
+                        $"<td>{user.company.Name}</td>" +
+                        $"<td>&euro; {user.Wallet.Amount.ToString("F2").Replace(",", ".")}</td>" +
+                        $"<td>{sex}</td>" +
+                        $"<td>{user.Role.Rolename}</td>" +
+                        $"<td><i class=\"fas fa-user-edit\" style=\"cursor: pointer\" onclick=\"editUser({user.uID})\"></i></td>" +
+                    "</tr>";
             }
+
+            html += "</table>";
+
+            userPlaceholder.Controls.Add(new LiteralControl(html));
         }
 
         #region 
