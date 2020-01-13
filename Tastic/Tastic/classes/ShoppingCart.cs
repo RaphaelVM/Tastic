@@ -25,9 +25,9 @@ namespace Tastic.classes
         /// Add an item to the shoppingcart
         /// </summary>
         /// <param name="shoppingCartItem"></param>
-        public static void addItem(ShoppingCartItem shoppingCartItem)
+        public static void addItem(ShoppingCartItem item)
         {
-            items.Add(shoppingCartItem);
+            items.Add(item);
         }
     }
 }

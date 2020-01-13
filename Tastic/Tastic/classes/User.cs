@@ -21,7 +21,6 @@ namespace Tastic.classes
         public string Sex;
         public Role Role;
         public Wallet Wallet;
-
         public Company company = new Company();
 
         public User() { }
@@ -57,7 +56,7 @@ namespace Tastic.classes
         /// Gets ALL users
         /// </summary>
         /// <returns></returns>
-        public List<User> getUsers()
+        public List<User> getAllUsers()
         {
             return userSQL.getUsers();
         }

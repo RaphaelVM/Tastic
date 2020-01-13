@@ -36,7 +36,7 @@ namespace Tastic
         /// </summary>
         private void getUserList()
         {
-            userList = user.getUsers();
+            userList = user.getAllUsers();
 
             user.getCompaniesFromUsers(userList);
 

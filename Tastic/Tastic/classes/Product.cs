@@ -34,17 +34,11 @@ namespace Tastic.classes
             Price = price;
         }
 
-        // Don't do this for now.
-        //public Category getCategory(int cid)
-        //{
-        //    return CategorySQL.GetCategory(cid);
-        //}
-
-        public ShoppingCartItem getShoppingCartItem(int pID)
-        {
-            return shoppingCartItemSQL.getShoppingCartItem(pID);
-        }
-
+        /// <summary>
+        /// Fill the categories of the products
+        /// </summary>
+        /// <param name="products"></param>
+        /// <returns></returns>
         public List<Product> fillCategories(List<Product> products)
         {
             List<Product> newProductList = new List<Product>();
