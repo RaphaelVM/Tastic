@@ -253,3 +253,58 @@ function removeFirstItem() {
 function editUser(uID) {
     location.href = "edituser.aspx?uid=" + uID;
 }
+
+function updateUser(uID) {
+
+    var firstName = document.getElementById("txtFirstname").value;
+    var lastName = document.getElementById("txtLastname").value;
+    var sex = document.getElementById("ddlGeslacht").value;
+    var walletAmount = document.getElementById("txtWalletAmount").value;
+    var company = document.getElementById("ddlCompanies").value;
+    var role = document.getElementById("ddlRoles").value; 
+
+    // Create a JSON string with the data we need the C# code to have
+    var data = { "uid": uID, "firstname": firstName, "lastname": lastName, "sex": sex, "walletamount": walletAmount, "companyid": company, "roleid": role };
+
+    console.log(data);
+    $.ajax({
+        type: 'POST',
+        url: 'edituser.aspx/adminEditUser',
+        data: JSON.stringify(data),
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        success: function (data) {
+            if (data) {
+
+                var updateUserERRPar = document.getElementById("updateUserERRPar");
+
+                updateUserERRPar.style.display = "block";
+                updateUserERRPar.style.marginTop = "10%";
+                updateUserERRPar.classList.add("alert");
+                updateUserERRPar.classList.add("alert-success");
+
+                document.getElementById("lblUpdateUserERR").innerHTML =
+                    "De user is aangepast, u wordt binnen 5 seconden naar de users pagina gebracht.";
+
+                setTimeout(function () {
+                    location.href = "users.aspx";
+                }, 5000);
+            } else {
+                var updateUserERRPar = document.getElementById("updateUserERRPar");
+
+                updateUserERRPar.style.display = "block";
+                updateUserERRPar.classList.add("alert");
+                updateUserERRPar.classList.add("alert-error");
+
+                document.getElementById("lblUpdateUserERR").innerHTML =
+                    "Er is iets fout gegaan met het invoeren van de user gegevens, probeer het opnieuw.";
+            }
+        },
+        error: function (data, success, error) {
+            alert("Error: " + error + " || " + "Data: " + data + " || " + "Success: " + success);
+            console.log(data);
+            console.log(success);
+            console.log(error);
+        }
+    });
+}

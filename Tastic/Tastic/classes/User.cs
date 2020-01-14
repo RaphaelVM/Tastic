@@ -108,5 +108,33 @@ namespace Tastic.classes
                 user.Role = roleSQL.getRoleFromUser(user.uID);
             }
         }
+
+        /// <summary>
+        /// Update user but from the admin page
+        /// </summary>
+        /// <param name="uID"></param>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <param name="sex"></param>
+        /// <param name="walletAmount"></param>
+        /// <param name="companyID"></param>
+        /// <param name="roleID"></param>
+        /// <returns></returns>
+        public bool updateUserAdmin(int uID, int oldCompanyID, string firstName, string lastName, string sex, 
+                                    double walletAmount, int companyID, int roleID)
+        {
+            bool updateUser = userSQL.updateUserAdmin(uID, firstName, lastName, sex, roleID);
+            bool updateWallet = walletSQL.updateWallet(uID, walletAmount);
+            bool updateUserCompany = companySQL.updateUserCompany(uID, companyID, oldCompanyID);
+
+            if (updateUser && updateWallet && updateUserCompany)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

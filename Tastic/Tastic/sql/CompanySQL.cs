@@ -61,6 +61,10 @@ namespace Tastic.sql
             }
         }
 
+        /// <summary>
+        /// Get all companies we have
+        /// </summary>
+        /// <returns></returns>
         public List<Company> getAllCompanies()
         {
             List<Company> companies = new List<Company>();
@@ -89,6 +93,32 @@ namespace Tastic.sql
             {
                 Console.WriteLine(err);
                 return companies;
+            }
+        }
+
+        public bool updateUserCompany(int uID, int cID, int oldCID)
+        {
+            try
+            {
+                database.OpenGeneralConnection();
+
+                using (var cmd = new MySqlCommand())
+                {
+                    cmd.Connection = database.GeneralConnection;
+                    cmd.CommandText = "UPDATE usertocomp SET coID = @coid WHERE uID = @uid AND coID = @oldcid";
+                    cmd.Parameters.AddWithValue("@coid", cID);
+                    cmd.Parameters.AddWithValue("@uid", uID);
+                    cmd.Parameters.AddWithValue("@oldcid", oldCID);
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                return true;
+            }
+            catch (Exception err)
+            {
+                Console.WriteLine(err);
+                return false;
             }
         }
     }

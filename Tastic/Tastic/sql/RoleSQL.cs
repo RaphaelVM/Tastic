@@ -87,5 +87,36 @@ namespace Tastic.sql
                 return role;
             }
         }
+
+        public List<Role> getAllRoles()
+        {
+            List<Role> roles = new List<Role>();
+            try
+            {
+                database.OpenGeneralConnection();
+
+                using (var cmd = new MySqlCommand())
+                {
+                    cmd.Connection = database.GeneralConnection;
+                    cmd.CommandText = "SELECT * FROM roles";
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            roles.Add(newRole(reader));
+                        }
+                    }
+
+                }
+
+                return roles;
+            }
+            catch (Exception err)
+            {
+                Console.WriteLine(err);
+                return roles;
+            }
+        }
     }
 }

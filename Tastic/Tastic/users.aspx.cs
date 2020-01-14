@@ -63,6 +63,7 @@ namespace Tastic
             foreach (User user in userList)
             {
                 string sex = (user.Sex == null) ? "" : user.Sex;
+                sex = (sex == "Woman") ? "Vrouw" : "Man";
 
                 html +=
                     "<tr>" +

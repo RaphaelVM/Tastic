@@ -225,5 +225,43 @@ namespace Tastic.sql
                 return users;
             }
         }
+
+        /// <summary>
+        /// Update user from the admin page
+        /// </summary>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <param name="sex"></param>
+        /// <param name="walletAmount"></param>
+        /// <param name="companyID"></param>
+        /// <param name="roleID"></param>
+        /// <returns></returns>
+        public bool updateUserAdmin(int uID, string firstName, string lastName, string sex, int roleID)
+        {
+            try
+            {
+                database.OpenGeneralConnection();
+
+                using (var cmd = new MySqlCommand())
+                {
+                    cmd.Connection = database.GeneralConnection;
+                    cmd.CommandText = "UPDATE users SET Firstname = @firstname, Lastname = @lastname, Sex = @sex, rID = @rid WHERE uID = @uid";
+                    cmd.Parameters.AddWithValue("@firstname", firstName);
+                    cmd.Parameters.AddWithValue("@lastname", lastName);
+                    cmd.Parameters.AddWithValue("@sex", sex);
+                    cmd.Parameters.AddWithValue("@rid", roleID);
+                    cmd.Parameters.AddWithValue("@uid", uID);
+
+                    cmd.ExecuteReader();
+                }
+
+                return true;
+            }
+            catch (Exception err)
+            {
+                Console.WriteLine(err);
+                return false;
+            }
+        }
     }
 }

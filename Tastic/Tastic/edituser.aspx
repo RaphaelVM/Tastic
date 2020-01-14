@@ -61,6 +61,9 @@
                     <div class="col-md-2"></div>
 
                     <div class="col-md-8">
+                        <div runat="server" class="form-group invisible-cust" id="updateUserERRPar">
+                            <asp:Label ID="lblUpdateUserERR" runat="server" Text=""></asp:Label>
+                        </div>
                         <table style="width: 100%; margin-top: 10%;">
                             <tr>
                                 <td class="editUser-table-data">
@@ -89,8 +92,8 @@
 
                                 <td>
                                     <asp:DropDownList ID="ddlGeslacht" runat="server" class="form-control formStyle">
-                                        <asp:ListItem Value="male">Man</asp:ListItem>
-                                        <asp:ListItem Value="female">Vrouw</asp:ListItem>
+                                        <asp:ListItem Value="Man">Man</asp:ListItem>
+                                        <asp:ListItem Value="Woman">Vrouw</asp:ListItem>
                                     </asp:DropDownList>
                                 </td>
                             </tr>
@@ -114,6 +117,28 @@
                                     <asp:DropDownList ID="ddlCompanies" runat="server" class="form-control formStyle">
 
                                     </asp:DropDownList>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="editUser-table-data">
+                                    Rol: 
+                                </td>
+
+                                <td>
+                                    <asp:DropDownList ID="ddlRoles" runat="server" CssClass="form-control formStyle">
+
+                                    </asp:DropDownList>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td style="text-align: left;">
+                                    <asp:Button runat="server" Text="Annuleren" CssClass="btn btn-primary buttonStyle float-left" ID="btnCancel" OnClick="btnCancel_Click" />
+                                </td>
+
+                                <td style="text-align: right;">
+                                    <asp:PlaceHolder ID="saveButtonPlaceholder" runat="server"></asp:PlaceHolder>
                                 </td>
                             </tr>
                         </table>

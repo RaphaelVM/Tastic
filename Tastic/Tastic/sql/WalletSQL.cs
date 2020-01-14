@@ -81,5 +81,30 @@ namespace Tastic.sql
                 return wallet;
             }
         }
+
+        public bool updateWallet(int uID, double walletAmount)
+        {
+            try
+            {
+                database.OpenGeneralConnection();
+
+                using (var cmd = new MySqlCommand())
+                {
+                    cmd.Connection = database.GeneralConnection;
+                    cmd.CommandText = "UPDATE wallet SET Amount = @amount  WHERE uID = @uid";
+                    cmd.Parameters.AddWithValue("@amount", walletAmount);
+                    cmd.Parameters.AddWithValue("@uid", uID);
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                return true;
+            }
+            catch (Exception err)
+            {
+                Console.WriteLine(err);
+                return false;
+            }
+        }
     }
 }
